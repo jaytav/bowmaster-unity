@@ -30,12 +30,8 @@ public class PlayerShooting : MonoBehaviour
 
 		if (Input.GetButtonUp("Fire1"))
 		{	
-			if (chargeTime >= 1f) //if bow charged for 1 second
-			{
-				//create an instance of the arrow, located on arrowSpawn
-				Instantiate(arrow, arrowSpawn.position, arrowSpawn.rotation);
-			}
-			
+			//create an instance of the arrow, located on arrowSpawn
+			Instantiate(arrow, arrowSpawn.position, arrowSpawn.rotation);
 			chargeTime = 0f; //reset charge time back to 0
 		}
 	}
