@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
 
+	public GameObject deadPlayer;
 	public int startingHealth = 50;
 	public int currentHealth;
-	public PlayerMovement playerMovement;
 
 	private bool isDead;
 	private bool damaged;
 
 	void Awake() {
-		playerMovement = GetComponent<PlayerMovement>();
 		currentHealth = startingHealth;
 	}
 
@@ -34,6 +33,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	private void Die() {
 		isDead = true;
-		playerMovement.enabled = false;
+		Destroy(gameObject); //destroy player
+		Instantiate(deadPlayer, transform.position, transform.rotation); //replace with dead version
 	}
 }
