@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerShooting : MonoBehaviour
 {
 	public static float chargeTime = 0f; //how long the player has charged the bow
+	public static float damage = 5f;
 	public GameObject arrow; //arrow being spawned
 
 	const float maxCharge = 1f; //maximum charge time

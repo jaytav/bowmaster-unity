@@ -6,6 +6,7 @@ public class ArrowMovement : MonoBehaviour
 {
 	public float speed = 500f;
 	public float reduceSpeed = 0.05f;
+	public int damage = 5;
 	public Object brokenArrow;
 
 	private float chargePower;
@@ -37,6 +38,10 @@ public class ArrowMovement : MonoBehaviour
 	{	
 		Destroy(gameObject);
 		Instantiate(brokenArrow, transform.position, Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))); //broken arrow takes place of destroyed arrow
+		if (col.tag == "Enemy" && chargePower >= 1f) {
+			EnemyHealth enemyHealth = col.gameObject.GetComponent<EnemyHealth>();
+			enemyHealth.TakeDamage(damage);
+		}
 	}
 
 }
