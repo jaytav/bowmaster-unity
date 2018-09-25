@@ -27,10 +27,11 @@ public class ArrowMovement : MonoBehaviour
 		
 		arrowRB.AddForce(Vector2.up * speed * reduceSpeed); //push arrow up a bit
 
-		//launch arrow forward
+		//launch arrow
 		if (chargePower >= 1f) {
 			arrowRB.AddForce(Vector2.right * PlayerMovement.direction * speed * chargePower); //power shot
 		}
+		else arrowRB.AddForce(Vector2.right * PlayerMovement.direction * speed * reduceSpeed); //flop shot
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
