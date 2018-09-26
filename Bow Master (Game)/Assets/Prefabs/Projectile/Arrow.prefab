@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   reduceSpeed: 0.05
+  damage: 5
   brokenArrow: {fileID: 1353501164366610, guid: 6d7ebde07971be9448e87cd9f2d0bc93,
     type: 2}
 --- !u!212 &212529267865744932

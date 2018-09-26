@@ -9,9 +9,8 @@ public class EdgeCheck : MonoBehaviour {
 		EnemyMovement.direction *= -1f;
 	}
 
-	IEnumerator EdgeWait() {
+	IEnumerator EdgeWait() { //stops enemy moving for 3 seconds
 		EnemyMovement.isMoving = false;
-		print(EnemyMovement.isMoving);
 		yield return new WaitForSeconds(3f);
 		EnemyMovement.isMoving = true;
 	}

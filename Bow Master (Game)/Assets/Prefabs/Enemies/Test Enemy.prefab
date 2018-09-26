@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 10
   currentHealth: 0
+  deadEnemy: {fileID: 0}
 --- !u!114 &114597440715062898
 MonoBehaviour:
   m_ObjectHideFlags: 1

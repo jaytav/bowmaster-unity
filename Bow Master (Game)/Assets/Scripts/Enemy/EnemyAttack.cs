@@ -46,6 +46,13 @@ public class EnemyAttack : MonoBehaviour {
 		}
 	}
 
+	IEnumerator WaitAttack() {
+		enemyMovement.enabled = false;
+		yield return new WaitForSeconds(1.5f);
+		enemyMovement.enabled = true;
+		enemyAnim.SetBool("Attacking", false);
+	}
+
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag == "Player") {
 			playerInRange = true;
@@ -56,12 +63,5 @@ public class EnemyAttack : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			playerInRange = false;
 		}
-	}
-
-	IEnumerator WaitAttack() {
-		enemyMovement.enabled = false;
-		yield return new WaitForSeconds(1.5f);
-		enemyMovement.enabled = true;
-		enemyAnim.SetBool("Attacking", false);
 	}
 }
