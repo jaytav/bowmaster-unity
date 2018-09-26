@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour {
 
-	public float timeBetweenAttacks = 0.5f;
+	public static bool playerInRange;
+	public float timeBetweenAttacks = 3f;
 	public int attackDamage = 10;
 
 	private GameObject player;
 	private PlayerHealth playerHealth;
 	private EnemyHealth enemyHealth;
-	private bool playerInRange;
+	private EnemyMovement enemyMovement;
+	private Animator enemyAnim;
 	private float timer;
 
 	void Awake() {
+		timer = timeBetweenAttacks;
 		player = GameObject.FindWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
 		enemyHealth = GetComponent<EnemyHealth>();
+		enemyMovement = GetComponent<EnemyMovement>();
+		enemyAnim = GetComponent<Animator>();
 	}
 
 	void Update () {
 		timer += Time.deltaTime;
 
 		if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0) {
+			enemyAnim.SetBool("Attacking", true);
+			StartCoroutine(WaitAttack());
 			Attack();
 		}
 
@@ -49,5 +56,12 @@ public class EnemyAttack : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			playerInRange = false;
 		}
+	}
+
+	IEnumerator WaitAttack() {
+		enemyMovement.enabled = false;
+		yield return new WaitForSeconds(1.5f);
+		enemyMovement.enabled = true;
+		enemyAnim.SetBool("Attacking", false);
 	}
 }
