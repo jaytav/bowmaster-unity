@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1
-  attackDamage: 10
+  attackDamage: 50
 --- !u!61 &139990083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -652,6 +652,16 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1247384613}
+    - target: {fileID: 114454685981978920, guid: f7e0b4fe7f7830143a9c78686e719943,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.491
+      objectReference: {fileID: 0}
+    - target: {fileID: 223670676039912612, guid: f7e0b4fe7f7830143a9c78686e719943,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
   m_IsPrefabParent: 0
