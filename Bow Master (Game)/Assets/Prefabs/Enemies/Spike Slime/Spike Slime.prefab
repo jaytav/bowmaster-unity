@@ -77,7 +77,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651950365603774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4992796200178732}
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: -0.4}
+  m_Offset: {x: -0.2, y: -0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -218,7 +218,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1, y: -0.4}
+  m_Offset: {x: 0.2, y: -0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358afe310de9c748b82e2e0ac0af375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitLength: 2
 --- !u!114 &114283309936732982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0358afe310de9c748b82e2e0ac0af375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitLength: 2
 --- !u!114 &114552454210074734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,7 +371,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 114333355
+  randomSeed: -1663313548
   InitialModule:
     serializedVersion: 3
     enabled: 1
