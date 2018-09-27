@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour {
 
 	public float speed = 3f;
-	public static float direction = -1;
-	public static bool isMoving = true;
+	public float direction = -1;
+	public bool isMoving = true;
 
 	private SpriteRenderer enemySR;
 	private Animator enemyAnim;

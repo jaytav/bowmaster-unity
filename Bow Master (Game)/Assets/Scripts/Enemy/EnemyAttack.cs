@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour {
 
-	public static bool playerInRange;
+	public bool playerInRange;
 	public float timeBetweenAttacks = 3f;
 	public int attackDamage = 10;
 	public float animWait = 1f;

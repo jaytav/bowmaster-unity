@@ -5,17 +5,18 @@ using UnityEngine;
 public class EdgeCheck : MonoBehaviour {
 
 	public float waitLength = 2f;
+	public EnemyMovement enemyMovement;
 
 	void OnTriggerExit2D(Collider2D col) {
 		if (col.gameObject.tag == "Ground") {
 			StartCoroutine(EdgeWait());
-			EnemyMovement.direction *= -1f;
+			enemyMovement.direction *= -1f;
 		}
 	}
 
 	IEnumerator EdgeWait() { //stops enemy moving for 3 seconds
-		EnemyMovement.isMoving = false;
+		enemyMovement.isMoving = false;
 		yield return new WaitForSeconds(waitLength);
-		EnemyMovement.isMoving = true;
+		enemyMovement.isMoving = true;
 	}
 }

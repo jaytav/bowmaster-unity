@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour {
 
 	public int startingHealth = 10;
 	public int currentHealth;
 	public GameObject deadEnemy; //enemy death model
+	public float deathTime = 2f;
+	public Text enemyHealthAmount;
 
 	private ParticleSystem enemyPS;
 	private Animator enemyAnim;
@@ -20,6 +23,10 @@ public class EnemyHealth : MonoBehaviour {
 		enemyPS = GetComponent<ParticleSystem>();
 		enemyAnim = GetComponent<Animator>();
 		enemyMovement = GetComponent<EnemyMovement>();
+	}
+
+	void Update() {
+		enemyHealthAmount.text = currentHealth.ToString();
 	}
 
 	public void TakeDamage(int amount) {
@@ -38,7 +45,7 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	IEnumerator WaitDeath() {
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(deathTime);
 		Instantiate(deadEnemy, transform.position, transform.rotation);
 		Destroy(gameObject);
 	}
