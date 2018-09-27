@@ -7,14 +7,11 @@ public class CellDoor : MonoBehaviour {
 	public float speed;
 	public float time;
 
-	private Transform target;
 	private Collider2D cellDoorCol;
 	private bool opened = false;
 
 	void Start() {
-		target = GetComponent<Transform>();
 		cellDoorCol = GetComponent<Collider2D>();
-		target.position = new Vector3(transform.position.x, 3f, 0f);
 	}
 
 	void Update() {

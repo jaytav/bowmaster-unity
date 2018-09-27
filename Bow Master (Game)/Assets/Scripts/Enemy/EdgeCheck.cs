@@ -6,8 +6,8 @@ public class EdgeCheck : MonoBehaviour {
 
 	public float waitLength = 2f;
 
-	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag == "Ground Edge") {
+	void OnTriggerExit2D(Collider2D col) {
+		if (col.gameObject.tag == "Ground") {
 			StartCoroutine(EdgeWait());
 			EnemyMovement.direction *= -1f;
 		}

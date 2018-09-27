@@ -30,7 +30,6 @@ public class EnemyAttack : MonoBehaviour {
 		if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0) {
 			enemyAnim.SetBool("Attacking", true);
 			StartCoroutine(WaitAttack());
-			Attack();
 		}
 
 		if (playerHealth.currentHealth <= 0) {
@@ -48,7 +47,8 @@ public class EnemyAttack : MonoBehaviour {
 
 	IEnumerator WaitAttack() {
 		enemyMovement.enabled = false;
-		yield return new WaitForSeconds(1.5f);
+		yield return new WaitForSeconds(.5f);
+		Attack();
 		enemyMovement.enabled = true;
 		enemyAnim.SetBool("Attacking", false);
 	}
