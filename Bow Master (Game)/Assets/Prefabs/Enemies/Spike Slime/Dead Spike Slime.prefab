@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4346382640853820}
   - component: {fileID: 212593086101999396}
-  - component: {fileID: 199916079145048744}
-  - component: {fileID: 198141248879022168}
+  - component: {fileID: 114149917716266394}
+  - component: {fileID: 198559752087638262}
+  - component: {fileID: 199678016642248614}
   m_Layer: 0
   m_Name: Dead Spike Slime
   m_TagString: Untagged
@@ -42,14 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &198141248879022168
+--- !u!114 &114149917716266394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500084154170882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d715aaf24c96ed4a86725e93ddf669c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 3
+--- !u!198 &198559752087638262
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1500084154170882}
   serializedVersion: 5
-  lengthInSec: 3
+  lengthInSec: 9
   simulationSpeed: 3
   stopAction: 0
   looping: 0
@@ -102,7 +115,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -870427783
+  randomSeed: -1775143269
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -150,7 +163,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.01
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -191,8 +204,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.76470596, g: 0.7411765, b: 0.70980394, a: 1}
-      maxColor: {r: 0.83921576, g: 0.5294118, b: 0.24705884, a: 1}
+      minColor: {r: 0.5254902, g: 0, b: 0.6117647, a: 1}
+      maxColor: {r: 0.12941177, g: 0, b: 0.14901961, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -254,7 +267,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -504,7 +517,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.01
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -545,14 +558,14 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 12
+    type: 17
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
-    donutRadius: 0.04391963
-    m_Position: {x: 0, y: 0.03, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    donutRadius: 0.08
+    m_Position: {x: 0, y: -0.24, z: 0}
+    m_Rotation: {x: 75, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_Mesh: {fileID: 0}
@@ -563,11 +576,11 @@ ParticleSystem:
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    randomDirectionAmount: 1
+    randomDirectionAmount: 0
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.18
+      value: 0.6
       mode: 0
       spread: 0
       speed:
@@ -613,7 +626,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
+      mode: 1
       spread: 0
       speed:
         serializedVersion: 2
@@ -662,7 +675,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 200
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3359,7 +3372,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199916079145048744
+--- !u!199 &199678016642248614
 ParticleSystemRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 1

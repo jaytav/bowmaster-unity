@@ -11,7 +11,6 @@ public class EnemyHealth : MonoBehaviour {
 	public float deathTime = 2f;
 	public Text enemyHealthAmount;
 
-	private ParticleSystem enemyPS;
 	private Animator enemyAnim;
 	private EnemyMovement enemyMovement;
 
@@ -20,13 +19,14 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	void Start() {
-		enemyPS = GetComponent<ParticleSystem>();
 		enemyAnim = GetComponent<Animator>();
 		enemyMovement = GetComponent<EnemyMovement>();
 	}
 
 	void Update() {
-		enemyHealthAmount.text = currentHealth.ToString();
+		if (currentHealth < 0) {
+			enemyHealthAmount.text = "";
+		} else enemyHealthAmount.text = currentHealth.ToString();
 	}
 
 	public void TakeDamage(int amount) {
@@ -38,7 +38,6 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	void Die() {
-		enemyPS.Play();
 		enemyAnim.SetTrigger("Die");
 		enemyMovement.enabled = false;
 		StartCoroutine(WaitDeath());
