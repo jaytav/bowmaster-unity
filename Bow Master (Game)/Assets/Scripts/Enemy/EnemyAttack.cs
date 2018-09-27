@@ -7,11 +7,13 @@ public class EnemyAttack : MonoBehaviour {
 	public static bool playerInRange;
 	public float timeBetweenAttacks = 3f;
 	public int attackDamage = 10;
+	public float animWait = 1f;
 
 	private GameObject player;
 	private PlayerHealth playerHealth;
 	private EnemyHealth enemyHealth;
 	private EnemyMovement enemyMovement;
+	
 	private Animator enemyAnim;
 	private float timer;
 
@@ -40,14 +42,14 @@ public class EnemyAttack : MonoBehaviour {
 	void Attack() {
 		timer = 0f;
 
-		if (playerHealth.currentHealth > 0) {
+		if (playerHealth.currentHealth > 0 && playerInRange) {
 			playerHealth.TakeDamage(attackDamage);
 		}
 	}
 
 	IEnumerator WaitAttack() {
 		enemyMovement.enabled = false;
-		yield return new WaitForSeconds(.5f);
+		yield return new WaitForSeconds(animWait);
 		Attack();
 		enemyMovement.enabled = true;
 		enemyAnim.SetBool("Attacking", false);
