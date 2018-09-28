@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	public float speed = 3f;
 	public float direction = -1;
+	public float drawnDirection = 1f;
 	public bool isMoving = true;
 
 	private SpriteRenderer enemySR;
@@ -24,13 +25,11 @@ public class EnemyMovement : MonoBehaviour {
 	void Move() {
 		if (isMoving) {
 			transform.Translate(speed * direction * Time.deltaTime, 0, 0);
-			
 		}
-		
 		enemyAnim.SetBool("IsMoving", isMoving);
 	}
 
 	void Flip() {
-		if (direction == -1f) { enemySR.flipX = true; } else enemySR.flipX = false;
+		if (direction == -1f * drawnDirection) { enemySR.flipX = true; } else enemySR.flipX = false;
 	}
 }
