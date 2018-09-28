@@ -481,7 +481,7 @@ MonoBehaviour:
   playerInRange: 0
   timeBetweenAttacks: 3
   attackDamage: 1
-  animWait: 1
+  animWait: 0
 --- !u!212 &212616806074642674
 SpriteRenderer:
   m_ObjectHideFlags: 1
