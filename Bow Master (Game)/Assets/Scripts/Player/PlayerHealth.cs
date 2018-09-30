@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
 	public GameObject deadPlayer;
+	public GameObject takeDamageImage;
+	public float takeDamageImageTime;
 	public int startingHealth = 50;
 	public int currentHealth;
 
@@ -24,6 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void TakeDamage(int amount) {
 		damaged = true;
+		StartCoroutine(WaitTakeDamageImage());
 		currentHealth -= amount;
 
 		if (currentHealth <= 0 && !isDead) {
@@ -35,5 +38,11 @@ public class PlayerHealth : MonoBehaviour {
 		isDead = true;
 		Destroy(gameObject); //destroy player
 		Instantiate(deadPlayer, transform.position, transform.rotation); //replace with dead version
+	}
+
+	IEnumerator WaitTakeDamageImage() {
+		takeDamageImage.SetActive(true);
+		yield return new WaitForSeconds(takeDamageImageTime);
+		takeDamageImage.SetActive(false);
 	}
 }
