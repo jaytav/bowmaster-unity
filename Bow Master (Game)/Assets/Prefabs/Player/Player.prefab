@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 223670676039912612}
   - component: {fileID: 114981869723407646}
   - component: {fileID: 114342224561882150}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4771632288424562}
   - component: {fileID: 61676743620483358}
   - component: {fileID: 114380229312524288}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4657047003347696}
   - component: {fileID: 108952679794403776}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,9 +75,25 @@ GameObject:
   - component: {fileID: 114152883722150956}
   - component: {fileID: 198414130105015726}
   - component: {fileID: 199966702596698234}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Charge Bar
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1865412165969480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4704073386457680}
+  - component: {fileID: 58075600723918474}
+  m_Layer: 0
+  m_Name: Player Range
+  m_TagString: PlayerRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,12 +107,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4205015304874716}
   - component: {fileID: 212260003291758096}
-  - component: {fileID: 95619291818144566}
+  - component: {fileID: 70447659355431432}
   - component: {fileID: 50180594916253726}
+  - component: {fileID: 95619291818144566}
   - component: {fileID: 114591430091272294}
   - component: {fileID: 114351558134534050}
   - component: {fileID: 114155983476930386}
-  - component: {fileID: 70447659355431432}
   - component: {fileID: 114640031082075906}
   m_Layer: 8
   m_Name: Player
@@ -112,11 +128,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956428388143824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.71, y: 14.46, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4771632288424562}
   - {fileID: 4657047003347696}
+  - {fileID: 4704073386457680}
   - {fileID: 224675384052330862}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -134,6 +151,19 @@ Transform:
   m_Father: {fileID: 4205015304874716}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4704073386457680
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865412165969480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4205015304874716}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4771632288424562
 Transform:
   m_ObjectHideFlags: 1
@@ -166,7 +196,22 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
+--- !u!58 &58075600723918474
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865412165969480}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
 --- !u!61 &61676743620483358
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -233,7 +278,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 3
-  m_Color: {r: 0.28676468, g: 0.4769606, b: 1, a: 1}
+  m_Color: {r: 0.4602076, g: 0.4602076, b: 0.5588235, a: 1}
   m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
@@ -359,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5af3551787c2ad45b406592548db12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 12.86
   jumpPower: 500
 --- !u!114 &114640031082075906
 MonoBehaviour:
@@ -373,6 +418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadPlayer: {fileID: 1219985703227388, guid: 8475e00164386df40b0110c04141f7bd, type: 2}
+  takeDamageImage: {fileID: 0}
+  takeDamageImageTime: 0.25
   startingHealth: 3
   currentHealth: 0
 --- !u!114 &114981869723407646
@@ -3867,7 +3914,7 @@ RectTransform:
   m_Children:
   - {fileID: 224215794576031914}
   m_Father: {fileID: 4205015304874716}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
