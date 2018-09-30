@@ -36,12 +36,25 @@ public class ArrowMovement : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{	
-		Destroy(gameObject);
-		Instantiate(brokenArrow, transform.position, Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))); //broken arrow takes place of destroyed arrow
+		if (col.tag == "PlayerRange") { //ignores collision inside player range
+			return;
+		}
+		DestroyInstantiateArrow();
 		if (col.tag == "Enemy" && chargePower >= 1f) {
 			EnemyHealth enemyHealth = col.gameObject.GetComponent<EnemyHealth>();
 			enemyHealth.TakeDamage(damage);
 		}
+	}
+
+	void OnTriggerExit2D(Collider2D col) {
+		if (col.gameObject.tag == "PlayerRange") { //destroy arrow when
+			DestroyInstantiateArrow();
+		}
+	}
+
+	void DestroyInstantiateArrow() {
+		Destroy(gameObject);
+		Instantiate(brokenArrow, transform.position, Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))); //broken arrow takes place of destroyed arrow
 	}
 
 }
