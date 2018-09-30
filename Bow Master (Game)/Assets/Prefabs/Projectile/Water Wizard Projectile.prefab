@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61802503182784216}
   - component: {fileID: 199404752587530288}
   - component: {fileID: 198338690832401716}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Water Wizard Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9330bed37c16b7a4e98a1f56dff25c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 2
 --- !u!198 &198338690832401716
 ParticleSystem:
   m_ObjectHideFlags: 1
