@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour {
 		UpdateCurrency();
 	}
 
+	public void RemoveCurrency(int currencyAmount) { //remove currency to current amount (purchasing)
+		currency -= currencyAmount;
+		UpdateCurrency();
+	}
+
 	void UpdateCurrency() { //update currency text on UI
 		currencyText.text = currency.ToString();
 	}
