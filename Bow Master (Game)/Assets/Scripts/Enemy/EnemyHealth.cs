@@ -10,9 +10,12 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject deadEnemy; //enemy death model
 	public float deathTime = 2f;
 	public Text enemyHealthAmount;
+	public int currencyValue;
 
 	private Animator enemyAnim;
 	private EnemyMovement enemyMovement;
+	private GameObject gameController;
+	private EnemyManager enemyManager;
 
 	void Awake() {
 		currentHealth = startingHealth;
@@ -21,6 +24,9 @@ public class EnemyHealth : MonoBehaviour {
 	void Start() {
 		enemyAnim = GetComponent<Animator>();
 		enemyMovement = GetComponent<EnemyMovement>();
+
+		gameController = GameObject.FindGameObjectWithTag("GameController");
+		enemyManager = gameController.GetComponent<EnemyManager>();
 	}
 
 	void Update() {
@@ -32,7 +38,7 @@ public class EnemyHealth : MonoBehaviour {
 	public void TakeDamage(int amount) {
 		currentHealth -= amount;
 
-		if (currentHealth <= 0) {
+		if (currentHealth <= 0 && enemyMovement.enabled) {
 			Die();
 		}
 	}
@@ -40,6 +46,7 @@ public class EnemyHealth : MonoBehaviour {
 	void Die() {
 		enemyAnim.SetTrigger("Die");
 		enemyMovement.enabled = false;
+		enemyManager.DropCurrency(currencyValue);
 		StartCoroutine(WaitDeath());
 	}
 

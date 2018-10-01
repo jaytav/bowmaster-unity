@@ -474,6 +474,7 @@ MonoBehaviour:
   deadEnemy: {fileID: 1500084154170882, guid: 5c9a2922ecdcc7241ae084d5dcfc6ab8, type: 2}
   deathTime: 2
   enemyHealthAmount: {fileID: 114510597328712854}
+  currencyValue: 2
 --- !u!114 &114609247693960870
 MonoBehaviour:
   m_ObjectHideFlags: 1
