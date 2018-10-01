@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour {
 	void Die() {
 		enemyAnim.SetTrigger("Die");
 		enemyMovement.enabled = false;
-		enemyManager.DropCurrency(currencyValue);
+		enemyManager.DropCurrency(currencyValue, transform.position);
 		StartCoroutine(WaitDeath());
 	}
 
