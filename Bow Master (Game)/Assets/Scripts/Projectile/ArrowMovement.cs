@@ -6,15 +6,16 @@ public class ArrowMovement : MonoBehaviour
 {
 	public float speed = 500f;
 	public float reduceSpeed = 0.05f;
-	public int damage = 5;
 	public Object brokenArrow;
 
+	private int damage;
 	private float chargePower;
 	private Rigidbody2D arrowRB;
 	private SpriteRenderer arrowSpriteRenderer;
 
 	void Awake()
 	{
+		damage = PlayerShooting.damage; //set arrows damage
 		chargePower = PlayerShooting.chargeTime; //get charge amount
 	}
 

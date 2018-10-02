@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour {
 
-    public enum Effect { Heal, Range } //what the item does
+    public enum Effect { Heal, Range, Damage } //what the item does
     public Effect selectedEffect;
 
     public int itemStrength; //strength of effect
@@ -37,8 +37,12 @@ public class Interactable : MonoBehaviour {
 
             if (itemEffect.Equals("Range")) { //if item enum is Range
                 //increase player range
-                print("increase range");
                 PlayerShooting.range += itemStrength;
+            }
+
+            if (itemEffect.Equals("Damage")) { //if enum is Damage
+                //increase player damage
+                PlayerShooting.damage += itemStrength;
             }
             
             Destroy(gameObject); //destroy object
