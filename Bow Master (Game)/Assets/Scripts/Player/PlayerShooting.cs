@@ -7,19 +7,32 @@ public class PlayerShooting : MonoBehaviour
 {
 	public static float chargeTime = 0f; //how long the player has charged the bow
 	public static float damage = 5f;
+	public static int range = 6;
 	public GameObject arrow; //arrow being spawned
 
 	const float maxCharge = 1f; //maximum charge time
 
 	private Transform arrowSpawn;
 
+	private GameObject playerRange;
+	private CircleCollider2D playerRangeCol;
+	private ParticleSystem playerRangePS;
+	private ParticleSystem.ShapeModule playerRangePSSM;
+
 	void Start()
 	{
+		playerRange = GameObject.FindGameObjectWithTag("PlayerRange");
+		playerRangeCol = playerRange.GetComponent<CircleCollider2D>();
+		playerRangePS = playerRange.GetComponent<ParticleSystem>();
+		playerRangePSSM = playerRangePS.shape;
+
 		arrowSpawn = transform;
 	}
 
 	void Update()
 	{
+		RangeChange();
+
 		if (Input.GetButton("Fire1"))
 		{
 			//increase charge time based on time held
@@ -35,5 +48,10 @@ public class PlayerShooting : MonoBehaviour
 			Instantiate(arrow, arrowSpawn.position, arrowSpawn.rotation);
 			chargeTime = 0f; //reset charge time back to 0
 		}
+	}
+
+	void RangeChange() {
+		playerRangeCol.radius = range;
+		playerRangePSSM.radius = range;
 	}
 }

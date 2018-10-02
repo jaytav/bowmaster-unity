@@ -37,7 +37,8 @@ public class Interactable : MonoBehaviour {
 
             if (itemEffect.Equals("Range")) { //if item enum is Range
                 //increase player range
-                Debug.Log("Range lol");
+                print("increase range");
+                PlayerShooting.range += itemStrength;
             }
             
             Destroy(gameObject); //destroy object
