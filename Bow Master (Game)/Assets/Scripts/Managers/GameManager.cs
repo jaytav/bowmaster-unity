@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
 	public Text currencyText; //currency text on UI
 
-	private int currency; //currency value
+	public int currency; //currency value
 
 	void Start() {
 		currency = 0; //start with 0 currency

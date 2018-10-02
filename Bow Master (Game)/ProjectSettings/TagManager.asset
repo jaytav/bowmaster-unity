@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - PlayerRange
   - Currency
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Non Lethal Enemy
   - Enemy Projectile
   - Currency
-  - 
-  - 
+  - Non Lethal Player
+  - Interactable
   - 
   - 
   - 
