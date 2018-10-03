@@ -6,6 +6,7 @@ public class SpawnRooms : MonoBehaviour {
 
 	public GameObject[] rooms;
 	public GameObject store;
+	public GameObject tunnel;
 
 	public float roomHeight;
 	public float roomLength;
@@ -28,6 +29,16 @@ public class SpawnRooms : MonoBehaviour {
 
 			currentRoomLength += roomLength;
 
+			currentRoomPos = //position of tunnel
+				new Vector2(transform.position.x + currentRoomLength,
+							transform.position.y + roomHeight);
+
+			Instantiate(tunnel, //spawn tunnel
+						currentRoomPos, 
+						transform.rotation);
+
+			currentRoomLength += roomLength;
+
 			currentRoomPos = //position of store
 				new Vector2(transform.position.x + currentRoomLength,
 							transform.position.y + roomHeight);
@@ -37,6 +48,16 @@ public class SpawnRooms : MonoBehaviour {
 						transform.rotation);
 
 			currentRoomLength += roomLength;
-		}
+
+			currentRoomPos = //position of tunnel
+				new Vector2(transform.position.x + currentRoomLength,
+							transform.position.y + roomHeight);
+
+			Instantiate(tunnel, //spawn tunnel
+						currentRoomPos, 
+						transform.rotation);
+						
+			currentRoomLength += roomLength;
+		}	
 	}
 }

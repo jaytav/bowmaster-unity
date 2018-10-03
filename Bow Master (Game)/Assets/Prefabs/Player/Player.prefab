@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 223670676039912612}
   - component: {fileID: 114981869723407646}
   - component: {fileID: 114342224561882150}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4771632288424562}
   - component: {fileID: 61676743620483358}
   - component: {fileID: 114380229312524288}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4657047003347696}
   - component: {fileID: 108952679794403776}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114152883722150956}
   - component: {fileID: 198414130105015726}
   - component: {fileID: 199966702596698234}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Charge Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 58075600723918474}
   - component: {fileID: 199800484468135982}
   - component: {fileID: 198192056782200884}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player Range
   m_TagString: PlayerRange
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 114351558134534050}
   - component: {fileID: 114155983476930386}
   - component: {fileID: 114640031082075906}
+  - component: {fileID: 114384030206692912}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -130,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956428388143824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.46, y: 1.09, z: 0}
+  m_LocalPosition: {x: 11.34, y: 3.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4771632288424562}
@@ -281,7 +282,7 @@ Light:
   serializedVersion: 8
   m_Type: 3
   m_Color: {r: 0.4602076, g: 0.4602076, b: 0.5588235, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -296,7 +297,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 1
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -368,6 +369,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9c8e888921cfa4b80d82978a059d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114384030206692912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956428388143824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd24630d51f450543b3b3853b9ad4cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentInteractable: {fileID: 0}
 --- !u!114 &114454685981978920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpPower: 2500
+  jumpPower: 4000
 --- !u!114 &114640031082075906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -505,7 +518,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1703757026
+  randomSeed: -604890578
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -970,7 +983,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 8
+      value: 0.01
       mode: 0
       spread: 0
       speed:
