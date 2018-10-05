@@ -10,19 +10,25 @@ public class Interactable : MonoBehaviour {
 
     public int itemStrength; //strength of effect
     public int itemCost; //currency cost of item
+    public string itemDesc; //item description
 
     public Text textPrice; //item price shown to player
+    public Text textDesc; //item description shown to player
+    public Canvas itemDescCanvas; //item canvas reference
     
     private string itemEffect; //what the item does in string
+    
     private GameManager gameManager;
     private PlayerHealth playerHealth;
 
     void Start() {
-         itemEffect = selectedEffect.ToString();
-         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        textDesc.text = itemDesc;
 
-         textPrice.text = itemCost.ToString();
+        itemEffect = selectedEffect.ToString();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+
+        textPrice.text = itemCost.ToString();
     }
 
 	public void DoEffect() {
@@ -48,5 +54,17 @@ public class Interactable : MonoBehaviour {
             Destroy(gameObject); //destroy object
         }
         else print("not enough currency");
+    }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        if (col.tag == "Player") {
+            itemDescCanvas.gameObject.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col) {
+        if (col.tag == "Player") {
+            itemDescCanvas.gameObject.SetActive(false);
+        }
     }
 }
