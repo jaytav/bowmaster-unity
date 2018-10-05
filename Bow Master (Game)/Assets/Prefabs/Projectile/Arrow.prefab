@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114156002977503480}
   m_Layer: 9
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   reduceSpeed: 0.05
-  damage: 1
   brokenArrow: {fileID: 1353501164366610, guid: 6d7ebde07971be9448e87cd9f2d0bc93,
     type: 2}
 --- !u!212 &212529267865744932

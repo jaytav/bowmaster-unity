@@ -122,11 +122,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 14.11
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.12
+      value: 2.39
       objectReference: {fileID: 0}
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.z
@@ -310,23 +310,6 @@ MonoBehaviour:
   target: {fileID: 2015947575}
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -20}
---- !u!1 &1050779923 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1956428388143824, guid: f7e0b4fe7f7830143a9c78686e719943,
-    type: 2}
-  m_PrefabInternal: {fileID: 807719842}
---- !u!114 &1050779924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1050779923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd24630d51f450543b3b3853b9ad4cdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentInteractable: {fileID: 0}
 --- !u!1 &1061439053 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1223128001203480, guid: a7bfe6caf60a0ff4ba7a5167b19d93db,
