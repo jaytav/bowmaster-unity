@@ -10,6 +10,8 @@ public class Currency : MonoBehaviour {
 	private CapsuleCollider2D capsuleCollider2D; //currency physical collider
 	private Rigidbody2D rigidbody2D; //currency rigidbody2D
 
+	private GameObject player; //player object
+
 	private GameManager gameManager; //gamemanager used to update currency amount on player pickup
 
 	//position of currency in relation to player so it moves to them
@@ -18,6 +20,8 @@ public class Currency : MonoBehaviour {
 	private Vector2 directionToTarget;
 
 	void Start() {
+		player = GameObject.FindGameObjectWithTag("Player");
+
 		GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
 		
 		if (gameController != null) { //if gameController exists get GameManager script from it
@@ -33,18 +37,18 @@ public class Currency : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		//disables physical collider, gravity and mass when player enters range
-		if (col.gameObject.tag == "PlayerRange") {
-			capsuleCollider2D.enabled = false;
-			rigidbody2D.gravityScale = 0;
-			rigidbody2D.mass = 0;
-		}
+		// if (col.gameObject.tag == "PlayerRange") {
+		// 	capsuleCollider2D.enabled = false;
+		// 	rigidbody2D.gravityScale = 0;
+		// 	rigidbody2D.mass = 0;
+		// }
 
 		if (col.gameObject.tag == "Player") { //adds to currency if touches player physical collider
 			gameManager.AddCurrency(value);
 			Destroy(gameObject);
 		}
 	}
-
+	/*
 	void OnTriggerExit2D(Collider2D col) {
 		//disables physical collider, gravity and mass when player enters range
 		if (col.gameObject.tag == "PlayerRange") {
@@ -53,7 +57,7 @@ public class Currency : MonoBehaviour {
 			rigidbody2D.mass = 1;
 		}
 	}
-
+	
 	void OnTriggerStay2D(Collider2D col) {
 		if (col.gameObject.tag == "PlayerRange") {
 			startPos = transform.position; //get currency current position
@@ -69,5 +73,21 @@ public class Currency : MonoBehaviour {
 								(directionToTarget.y * (speed - distance/10) * Time.deltaTime),
 								0f);
 		}
+	}
+	*/
+
+	void Update() {
+		startPos = transform.position; //get currency current position
+		targetPos = player.transform.position; //get player current position
+		directionToTarget = targetPos - startPos; //calculate direction from currency to player
+		
+		float distance = //get distance between currency and player
+			Vector2.Distance(player.transform.position,
+							transform.position);
+						
+		//move currency smoothly towards player, moves faster the closer currency is to the player
+		transform.Translate((directionToTarget.x * (speed - distance/10) * Time.deltaTime),
+							(directionToTarget.y * (speed - distance/10) * Time.deltaTime),
+							0f);
 	}
 }
