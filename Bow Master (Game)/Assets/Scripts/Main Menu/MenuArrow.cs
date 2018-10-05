@@ -8,8 +8,11 @@ public class MenuArrow : MonoBehaviour {
 	public float speed;
 	private BoxCollider2D arrowCol;
 	
-	void Update() {
+	void Start() {
 		arrowCol = GetComponent<BoxCollider2D>();
+	}
+
+	void Update() {
 		transform.Translate(speed * Time.deltaTime, 0f, 0f);
 	}
 

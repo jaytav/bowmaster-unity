@@ -5,22 +5,20 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour {
 
-	public Slider healthBar;
+	public Image healthBar;
 	public Text healthNum;
 
 	private GameObject player;
 	private PlayerHealth playerHealth;
 
-	void Start() {
+	void Awake() {
 		player = GameObject.FindWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
-
-		healthBar.maxValue = playerHealth.startingHealth;
 	}
 
 	void Update() {
-		healthBar.value = playerHealth.currentHealth;
+		healthBar.fillAmount = (float)playerHealth.currentHealth / (float)playerHealth.startingHealth;
 
-		healthNum.text = playerHealth.currentHealth + "/" + playerHealth.startingHealth;
+		healthNum.text = playerHealth.currentHealth.ToString();
 	}
 }
