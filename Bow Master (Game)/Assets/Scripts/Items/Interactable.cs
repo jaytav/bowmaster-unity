@@ -34,24 +34,24 @@ public class Interactable : MonoBehaviour {
 	public void DoEffect() {
         if (gameManager.currency >= itemCost) { //only do effect if player has enough currency
             
-            gameManager.RemoveCurrency(itemCost); //remove currency
-            
-            if (itemEffect.Equals("Heal")) { //if item enum is Heal
-                //heal player
-                playerHealth.currentHealth += itemStrength;
+            //if item enum is Heal and player is less than max health
+            if (itemEffect.Equals("Heal") && playerHealth.currentHealth < playerHealth.startingHealth) {
+                playerHealth.currentHealth += itemStrength; //heal player
+                gameManager.RemoveCurrency(itemCost); //remove currency
+                Destroy(gameObject); //destroy object
             }
 
             if (itemEffect.Equals("Range")) { //if item enum is Range
-                //increase player range
-                PlayerShooting.range += itemStrength;
+                PlayerShooting.range += itemStrength; //increase player range
+                gameManager.RemoveCurrency(itemCost); //remove currency
+                Destroy(gameObject); //destroy object
             }
 
             if (itemEffect.Equals("Damage")) { //if enum is Damage
-                //increase player damage
-                PlayerShooting.damage += itemStrength;
+                PlayerShooting.damage += itemStrength; //increase player damage
+                gameManager.RemoveCurrency(itemCost); //remove currency
+                Destroy(gameObject); //destroy object
             }
-            
-            Destroy(gameObject); //destroy object
         }
         else print("not enough currency");
     }
