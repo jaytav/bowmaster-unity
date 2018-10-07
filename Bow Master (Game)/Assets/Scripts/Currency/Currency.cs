@@ -7,8 +7,8 @@ public class Currency : MonoBehaviour {
 	public int value; //value of currency
 	public float speed; //speed when moving to player
 
-	private CapsuleCollider2D capsuleCollider2D; //currency physical collider
-	private Rigidbody2D rigidbody2D; //currency rigidbody2D
+	//private CapsuleCollider2D capsuleCollider2D; //currency physical collider
+	//private Rigidbody2D c_rigidbody2D; //currency rigidbody2D
 
 	private GameObject player; //player object
 
@@ -31,8 +31,8 @@ public class Currency : MonoBehaviour {
             Debug.Log ("Cannot find 'GameManager' script");
         }
 
-		capsuleCollider2D = GetComponent<CapsuleCollider2D>();
-		rigidbody2D = GetComponent<Rigidbody2D>();
+		//capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+		//c_rigidbody2D = GetComponent<Rigidbody2D>();
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {

@@ -14,26 +14,19 @@ public class RangeAttack : MonoBehaviour {
 
 	public GameObject projectile;
 
-	private GameObject player;
-	private PlayerHealth playerHealth;
 	private EnemyHealth enemyHealth;
 	private EnemyMovement enemyMovement;
 	private BoxCollider2D rangeAttackCol;
 
 	private Animator enemyAnim;
 	private float timer;
-	private float oldDirection;
 
 	void Awake() {
 		timer = timeBetweenAttacks;
-		player = GameObject.FindWithTag("Player");
-		playerHealth = player.GetComponent<PlayerHealth>();
 		enemyHealth = GetComponentInParent<EnemyHealth>();
 		enemyMovement = GetComponentInParent<EnemyMovement>();
 		enemyAnim = GetComponentInParent<Animator>();
 		rangeAttackCol = GetComponent<BoxCollider2D>();
-		oldDirection = enemyMovement.direction;
-
 		rangeAttackCol.size = new Vector2(rangeX, rangeY);
 	}
 

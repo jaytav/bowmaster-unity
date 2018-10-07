@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61721008850479238}
   - component: {fileID: 50705262239101330}
   - component: {fileID: 95619243041536604}
+  - component: {fileID: 114118247456104790}
   m_Layer: 10
   m_Name: King Slime
   m_TagString: Enemy
@@ -107,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486765651284600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 4.03, z: 0}
+  m_LocalPosition: {x: -7.51, y: 3.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4253563846765378}
@@ -223,7 +224,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.9, y: 0.125}
+  m_Offset: {x: -1, y: 0.125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -234,7 +235,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 5}
+  m_Size: {x: 0.35, y: 2}
   m_EdgeRadius: 0
 --- !u!61 &61247086207255676
 BoxCollider2D:
@@ -248,7 +249,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.125, y: 1.75}
+  m_Offset: {x: -0.125, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.75}
+  m_Size: {x: 2, y: 0.35}
   m_EdgeRadius: 0
 --- !u!61 &61261507940236168
 BoxCollider2D:
@@ -298,7 +299,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.65, y: 0.125}
+  m_Offset: {x: 0.75, y: 0.125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -309,7 +310,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 5}
+  m_Size: {x: 0.35, y: 2}
   m_EdgeRadius: 0
 --- !u!61 &61721008850479238
 BoxCollider2D:
@@ -348,7 +349,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.125, y: -1.5}
+  m_Offset: {x: -0.125, y: -0.75}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -359,7 +360,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.75}
+  m_Size: {x: 2, y: 0.35}
   m_EdgeRadius: 0
 --- !u!95 &95619243041536604
 Animator:
@@ -378,6 +379,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114118247456104790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486765651284600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd28c730c84b604c938d43b35434a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 10
+  currentHealth: 0
+  deadEnemy: {fileID: 1261078593322058, guid: b6909137452fcd74ca6029e163fa1f47, type: 2}
+  deathTime: 2
+  enemyHealthAmount: {fileID: 0}
+  currencyValue: 0
 --- !u!114 &114838113017046000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -389,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8741f471e1d9c864787a81045a9578f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.1
   isFollowing: 0
   kingSlime: {fileID: 1486765651284600}
 --- !u!212 &212064825158265164

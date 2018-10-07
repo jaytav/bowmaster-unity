@@ -9,30 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1177318844248490}
+  m_RootGameObject: {fileID: 1856157916039806}
   m_IsPrefabParent: 1
---- !u!1 &1177318844248490
+--- !u!1 &1856157916039806
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4423703444384478}
-  - component: {fileID: 114615134330086244}
+  - component: {fileID: 4576788460154880}
+  - component: {fileID: 114000485397397480}
+  - component: {fileID: 114155513477968200}
   m_Layer: 0
-  m_Name: Floor 01
-  m_TagString: Untagged
+  m_Name: Game Controller
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4423703444384478
+--- !u!4 &4576788460154880
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1177318844248490}
+  m_GameObject: {fileID: 1856157916039806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,23 +41,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114615134330086244
+--- !u!114 &114000485397397480
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1177318844248490}
+  m_GameObject: {fileID: 1856157916039806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cfe367ee8a19b844806c587a9621109, type: 3}
+  m_Script: {fileID: 11500000, guid: a934bd8d6364a5946a8a978b0cf94add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms:
-  - {fileID: 1313771694937356, guid: 5a4bb0818eaad1746b5b492d2a49ee06, type: 2}
-  - {fileID: 1605636113522320, guid: 33d88c556fc684547a81e7a2db7ab826, type: 2}
-  - {fileID: 1227139782489598, guid: 29e80f1063b226645b6fbc56231ba02e, type: 2}
-  spawn: {fileID: 1481087947457944, guid: eb8f8ea0adffc454094817fbc4c40744, type: 2}
-  store: {fileID: 1995149372621564, guid: bf55c7e033e697741ba76f027fb3b64b, type: 2}
-  tunnel: {fileID: 1452566479360060, guid: 421d9a11cb827d541889a572db75855f, type: 2}
-  roomHeight: 9
-  roomLength: 38.4
+  currencyText: {fileID: 0}
+  currency: 0
+--- !u!114 &114155513477968200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856157916039806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf71b2fa00a1f174bb91fcd1c5ab1c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currency: {fileID: 1261078593322058, guid: b6909137452fcd74ca6029e163fa1f47, type: 2}
+  waitTime: 0.25

@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114962496360320526}
   - component: {fileID: 114120371975996602}
   m_Layer: 0
-  m_Name: Level 02
+  m_Name: Enemy Room 02
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,6 +607,8 @@ MonoBehaviour:
   - {fileID: 1651950365603774, guid: b956b7b5e697b95478dd2c8892b68f7f, type: 2}
   - {fileID: 1521676548331132, guid: 2ba6934ee85d16646bbab722aaa97979, type: 2}
   enemySpawnPoints: {fileID: 4941275386284960}
+  enemySpawnPS: {fileID: 1400887283899614, guid: 3b60b202cc9aaa84aad279e365cd525c,
+    type: 2}
 --- !u!212 &212359079557118934
 SpriteRenderer:
   m_ObjectHideFlags: 1

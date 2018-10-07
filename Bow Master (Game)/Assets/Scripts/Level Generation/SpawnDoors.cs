@@ -24,7 +24,7 @@ public class SpawnDoors : MonoBehaviour {
 
 	void DestroyExcess() { //destroy uneeded GameObjects and/or components
 		Destroy(this);
-		Destroy(entranceSpawnPoint.gameObject);
-		Destroy(exitSpawnPoint.gameObject);
+		if (entranceSpawnPoint) { Destroy(entranceSpawnPoint.gameObject); }
+		if (exitSpawnPoint) { Destroy(exitSpawnPoint.gameObject); }
 	}
 }

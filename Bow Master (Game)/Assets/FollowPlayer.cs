@@ -29,10 +29,6 @@ public class FollowPlayer : MonoBehaviour {
 			startPos = transform.position; //get currency current position
 			targetPos = player.transform.position; //get player current position
 			directionToTarget = targetPos - startPos; //calculate direction from currency to player
-			
-			float distance = //get distance between currency and player
-				Vector2.Distance(player.transform.position,
-								transform.position);
 
 			//move currency smoothly towards player, moves faster the closer currency is to the player
 			transform.Translate((directionToTarget.x * Time.deltaTime * speed),

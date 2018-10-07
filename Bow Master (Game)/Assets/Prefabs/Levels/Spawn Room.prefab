@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 61944701561186944}
   - component: {fileID: 114971475714546298}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: Spawn Room
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1166435830613750, guid: fc439a83936135441b854a75aa0f1968, type: 2}
-  entrance: {fileID: 0}
-  exit: {fileID: 4446881691722530}
+  entranceSpawnPoint: {fileID: 0}
+  exitSpawnPoint: {fileID: 4446881691722530}
 --- !u!212 &212963802855210164
 SpriteRenderer:
   m_ObjectHideFlags: 1
