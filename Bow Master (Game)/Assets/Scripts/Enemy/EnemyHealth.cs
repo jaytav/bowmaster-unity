@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	void Update() {
-		if (currentHealth < 0) {
+		if (currentHealth <= 0) {
 			enemyHealthAmount.text = "";
 		} else enemyHealthAmount.text = currentHealth.ToString();
 	}

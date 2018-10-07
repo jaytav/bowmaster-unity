@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61721008850479238}
   - component: {fileID: 50705262239101330}
   - component: {fileID: 95619243041536604}
-  - component: {fileID: 114118247456104790}
+  - component: {fileID: 114356067397921126}
   m_Layer: 10
   m_Name: King Slime
   m_TagString: Enemy
@@ -335,7 +335,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12, y: 8}
+  m_Size: {x: 11, y: 7}
   m_EdgeRadius: 0
 --- !u!61 &61948108387887044
 BoxCollider2D:
@@ -379,7 +379,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114118247456104790
+--- !u!114 &114356067397921126
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -387,15 +387,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1486765651284600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd28c730c84b604c938d43b35434a8c, type: 3}
+  m_Script: {fileID: 11500000, guid: dbeaf9c46a8bbc44fad552590a41ae48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 10
   currentHealth: 0
-  deadEnemy: {fileID: 1261078593322058, guid: b6909137452fcd74ca6029e163fa1f47, type: 2}
-  deathTime: 2
-  enemyHealthAmount: {fileID: 0}
-  currencyValue: 0
+  bossHealthAmount: {fileID: 0}
+  bossHealthBar: {fileID: 0}
 --- !u!114 &114838113017046000
 MonoBehaviour:
   m_ObjectHideFlags: 1

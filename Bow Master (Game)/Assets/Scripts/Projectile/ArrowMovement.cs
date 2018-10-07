@@ -41,9 +41,16 @@ public class ArrowMovement : MonoBehaviour
 			return;
 		}
 		DestroyInstantiateArrow();
+
 		if (col.tag == "Enemy" && chargePower >= 1f) {
 			EnemyHealth enemyHealth = col.gameObject.GetComponent<EnemyHealth>();
 			enemyHealth.TakeDamage(damage);
+		}
+
+		if (col.tag == "Boss" && chargePower >= 1f) {
+			BossHealth bossHealth = col.gameObject.GetComponent<BossHealth>();
+			bossHealth.TakeDamage(damage);
+			print("Hit boss lol");
 		}
 	}
 
