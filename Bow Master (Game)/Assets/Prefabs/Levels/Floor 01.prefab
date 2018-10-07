@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 1313771694937356, guid: 5a4bb0818eaad1746b5b492d2a49ee06, type: 2}
   - {fileID: 1605636113522320, guid: 33d88c556fc684547a81e7a2db7ab826, type: 2}
   - {fileID: 1227139782489598, guid: 29e80f1063b226645b6fbc56231ba02e, type: 2}
+  spawn: {fileID: 1481087947457944, guid: eb8f8ea0adffc454094817fbc4c40744, type: 2}
   store: {fileID: 1995149372621564, guid: bf55c7e033e697741ba76f027fb3b64b, type: 2}
   tunnel: {fileID: 1452566479360060, guid: 421d9a11cb827d541889a572db75855f, type: 2}
   roomHeight: 9

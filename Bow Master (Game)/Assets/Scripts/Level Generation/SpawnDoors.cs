@@ -9,12 +9,16 @@ public class SpawnDoors : MonoBehaviour {
 	public Transform exit;
 
 	void Start() {
-		Instantiate(door,
+		if (entrance) {
+			Instantiate(door,
 					entrance.position,
 					entrance.rotation);
-
-		Instantiate(door,
+		}
+		
+		if (exit) {
+			Instantiate(door,
 					exit.position,
 					exit.rotation);
+		}
 	}
 }
