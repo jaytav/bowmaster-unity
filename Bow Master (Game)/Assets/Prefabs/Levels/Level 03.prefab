@@ -41,21 +41,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1130793434935318
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4744401714141186}
-  m_Layer: 0
-  m_Name: Entrance
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1216362597696496
 GameObject:
   m_ObjectHideFlags: 1
@@ -98,16 +83,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1386002952022018
+--- !u!1 &1342082897860344
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4076036745085950}
+  - component: {fileID: 4681887053465226}
   m_Layer: 0
-  m_Name: Door Spawn Points
+  m_Name: Entrance Door Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1421347263320104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4498970293878910}
+  m_Layer: 0
+  m_Name: Exit Door Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,21 +128,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1456544156580416
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4360568108484290}
-  m_Layer: 0
-  m_Name: Exit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1685830515497582
 GameObject:
   m_ObjectHideFlags: 1
@@ -153,6 +138,23 @@ GameObject:
   - component: {fileID: 4746119541661280}
   m_Layer: 0
   m_Name: Spawn01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1722547315975016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4896833305672096}
+  - component: {fileID: 61169051611865416}
+  - component: {fileID: 114339093649265004}
+  m_Layer: 0
+  m_Name: Spawn Enemies Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,21 +190,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4076036745085950
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1386002952022018}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4744401714141186}
-  - {fileID: 4360568108484290}
-  m_Father: {fileID: 4587706043103324}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4151989410485370
 Transform:
   m_ObjectHideFlags: 1
@@ -242,19 +229,6 @@ Transform:
   m_Father: {fileID: 4588206816533906}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4360568108484290
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1456544156580416}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5, y: -8.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4076036745085950}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4455506256797172
 Transform:
   m_ObjectHideFlags: 1
@@ -268,6 +242,19 @@ Transform:
   m_Father: {fileID: 4588206816533906}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4498970293878910
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1421347263320104}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.5, y: -8.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4587706043103324}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4587706043103324
 Transform:
   m_ObjectHideFlags: 1
@@ -279,7 +266,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4588206816533906}
-  - {fileID: 4076036745085950}
+  - {fileID: 4681887053465226}
+  - {fileID: 4498970293878910}
+  - {fileID: 4896833305672096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -315,18 +304,18 @@ Transform:
   m_Father: {fileID: 4587706043103324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4744401714141186
+--- !u!4 &4681887053465226
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1130793434935318}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1342082897860344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -18, y: -8.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4076036745085950}
-  m_RootOrder: 0
+  m_Father: {fileID: 4587706043103324}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4746119541661280
 Transform:
@@ -340,6 +329,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4588206816533906}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4896833305672096
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722547315975016}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17, y: -9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4587706043103324}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61085137322028920
 BoxCollider2D:
@@ -365,6 +367,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.6279793, y: 18.689701}
+  m_EdgeRadius: 0
+--- !u!61 &61169051611865416
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722547315975016}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!61 &61221631399470300
 BoxCollider2D:
@@ -566,13 +593,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.8770657, y: 1.0125847}
   m_EdgeRadius: 0
+--- !u!114 &114339093649265004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722547315975016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a703c6e51cc152d4581194e4cf9c15ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114704875396372968
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1227139782489598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b03beaaf18f8cb498527c9d8a567f08, type: 3}
   m_Name: 
@@ -580,13 +618,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 1651950365603774, guid: b956b7b5e697b95478dd2c8892b68f7f, type: 2}
   - {fileID: 1521676548331132, guid: 2ba6934ee85d16646bbab722aaa97979, type: 2}
-  enemySpawns:
-  - {fileID: 4746119541661280}
-  - {fileID: 4302388182375318}
-  - {fileID: 4151989410485370}
-  - {fileID: 4312612843232336}
-  - {fileID: 4588126259608810}
-  - {fileID: 4455506256797172}
+  enemySpawnPoints: {fileID: 4588206816533906}
 --- !u!114 &114707933905352528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -599,8 +631,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1166435830613750, guid: fc439a83936135441b854a75aa0f1968, type: 2}
-  entrance: {fileID: 4744401714141186}
-  exit: {fileID: 4360568108484290}
+  entranceSpawnPoint: {fileID: 4681887053465226}
+  exitSpawnPoint: {fileID: 4498970293878910}
 --- !u!212 &212371893895479472
 SpriteRenderer:
   m_ObjectHideFlags: 1
