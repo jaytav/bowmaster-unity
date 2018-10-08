@@ -178,6 +178,7 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 4751704897550270}
   bossSpawnPS: {fileID: 1400887283899614, guid: a7e720388cc58454390b40513d803c37,
     type: 2}
+  waitForSwitch: 2
 --- !u!212 &212767952546295310
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -7,15 +7,30 @@ public class SpawnBoss : MonoBehaviour {
 	public GameObject boss;
 	public Transform bossSpawnPoint;
 	public GameObject bossSpawnPS;
+	public float waitForSwitch;
 
+	private GameObject camera;
+	private CameraFollow cameraFollow;
 	private float timeToDestroy;
 	private float timeToWaitForParticles;
 
 	void Start() {
-		timeToDestroy = 2f;
+		camera = GameObject.FindGameObjectWithTag("MainCamera");
+		if (camera) { cameraFollow = camera.GetComponent<CameraFollow>(); }
+
+		timeToDestroy = 3f;
 		timeToWaitForParticles = 0.5f;
 		
+		StartCoroutine(WaitForCameraSwitch());
 		StartCoroutine(WaitForParticles());
+	}
+
+	IEnumerator WaitForCameraSwitch() { //make camera follow boss for x seconds, then back to player.
+		Transform playerTransform = cameraFollow.target.transform; //save player to assign back to camerafollow target
+		cameraFollow.target = bossSpawnPoint.transform;
+		yield return new WaitForSeconds(waitForSwitch);
+		cameraFollow.target = playerTransform;
+		DestroyExcess();
 	}
 
 	IEnumerator WaitForParticles() {
@@ -30,8 +45,6 @@ public class SpawnBoss : MonoBehaviour {
 					bossSpawnPoint.position,
 					bossSpawnPoint.rotation,
 					gameObject.transform);
-
-		DestroyExcess();
 	}
 
 	void DestroyExcess() {

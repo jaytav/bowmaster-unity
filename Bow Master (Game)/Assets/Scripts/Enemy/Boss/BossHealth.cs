@@ -33,7 +33,7 @@ public class BossHealth : MonoBehaviour {
 
 	void Update() {
 		if (currentLerp < 1f) {
-			currentLerp += Time.deltaTime;
+			currentLerp += Time.deltaTime / 4f;
 			bossHealthBar.value = Mathf.Lerp(0f, 1f, currentLerp);
 		}
 	}

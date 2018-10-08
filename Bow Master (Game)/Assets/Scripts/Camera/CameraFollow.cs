@@ -15,24 +15,24 @@ public class CameraFollow : MonoBehaviour {
 	private Vector2 directionToTarget;
 
 	void LateUpdate() {
-		// float mouseX = (Input.mousePosition.x / Screen.width);
-		// float mouseY = (Input.mousePosition.y / Screen.height);
+		float mouseX = (Input.mousePosition.x / Screen.width);
+		float mouseY = (Input.mousePosition.y / Screen.height);
 
-		// startPos = transform.position;
-		// targetPos = 
-		// 	new Vector2(target.position.x + mouseX,
-		// 				target.position.y + mouseY);
-		// directionToTarget = targetPos - startPos;
+		startPos = transform.position;
+		targetPos = 
+			new Vector2(target.position.x + mouseX,
+						target.position.y + mouseY);
+		directionToTarget = targetPos - startPos;
 
-		// float distance = -Vector2.Distance(targetPos, transform.position);
+		float distance = -Vector2.Distance(targetPos, transform.position);
 
-		// transform.Translate((directionToTarget.x * (speed - distance/10) * Time.deltaTime),
-		// 					(directionToTarget.y * (speed - distance/10) * Time.deltaTime),
-		// 					0f);
+		transform.Translate((directionToTarget.x * (speed - distance/10) * Time.deltaTime),
+							(directionToTarget.y * (speed - distance/10) * Time.deltaTime),
+							0f);
 		
-		if (target) {
-			Vector3 desiredPosition = target.position + offset;
-			transform.position = desiredPosition;
-		}
+		// if (target) {
+		// 	Vector3 desiredPosition = target.position + offset;
+		// 	transform.position = desiredPosition;
+		// }
 	}
 }
