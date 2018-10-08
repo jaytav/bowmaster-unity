@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4423703444384478
 Transform:
   m_ObjectHideFlags: 1
@@ -58,5 +58,6 @@ MonoBehaviour:
   spawn: {fileID: 1481087947457944, guid: eb8f8ea0adffc454094817fbc4c40744, type: 2}
   store: {fileID: 1995149372621564, guid: bf55c7e033e697741ba76f027fb3b64b, type: 2}
   tunnel: {fileID: 1452566479360060, guid: 421d9a11cb827d541889a572db75855f, type: 2}
+  bossRoom: {fileID: 1362546713574404, guid: 4128cf94f01276e4095687c3e1675f97, type: 2}
   roomHeight: 9
   roomLength: 38.4

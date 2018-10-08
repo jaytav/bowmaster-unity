@@ -8,6 +8,7 @@ public class SpawnRooms : MonoBehaviour {
 	public GameObject spawn;
 	public GameObject store;
 	public GameObject tunnel;
+	public GameObject bossRoom;
 
 	public float roomHeight;
 	public float roomLength;
@@ -27,7 +28,9 @@ public class SpawnRooms : MonoBehaviour {
 			SpawnTunnelRoom();
 			SpawnStoreRoom();			
 			SpawnTunnelRoom();
-		}	
+		}
+
+		SpawnBossRoom();
 	}
 
 	void SpawnSpawnRoom() {
@@ -76,5 +79,15 @@ public class SpawnRooms : MonoBehaviour {
 					transform.rotation);
 
 		currentRoomLength += roomLength; //increment length for next room
+	}
+
+	void SpawnBossRoom() {
+		currentRoomPos = //position of store
+			new Vector2(transform.position.x + currentRoomLength,
+						transform.position.y + roomHeight);
+
+		Instantiate(bossRoom,
+					currentRoomPos,
+					transform.rotation);
 	}
 }
