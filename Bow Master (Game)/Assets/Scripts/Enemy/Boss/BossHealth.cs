@@ -9,7 +9,6 @@ public class BossHealth : MonoBehaviour {
 	public int currentHealth;
 	public Text bossHealthAmount;
 	public Slider bossHealthBar;
-	public Material whiteSprite;
 	public int flashAmount;
 	public float flashTime;
 
