@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour {
 	public float takeDamageImageTime;
 	public int startingHealth = 50;
 	public int currentHealth;
+	public Animator UIAnim;
 
 	private bool isDead;
 	private bool damaged;
@@ -26,6 +27,8 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void TakeDamage(int amount) {
 		damaged = true;
+		UIAnim.Play("PlayerTakeDamage");
+		UIAnim.Play("Idle");
 		StartCoroutine(WaitTakeDamageImage());
 		currentHealth -= amount;
 

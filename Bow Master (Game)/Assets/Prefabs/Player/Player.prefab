@@ -437,6 +437,7 @@ MonoBehaviour:
   takeDamageImageTime: 0.25
   startingHealth: 3
   currentHealth: 0
+  UIAnim: {fileID: 0}
 --- !u!114 &114981869723407646
 MonoBehaviour:
   m_ObjectHideFlags: 1

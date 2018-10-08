@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public Text currencyText; //currency text on UI
+	public Animator UIAnim;
 
 	public int currency; //currency value
 
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour {
 
 	public void AddCurrency(int currencyAmount) { //add currency to current amount
 		currency += currencyAmount;
+		UIAnim.Play("PlayerGetCurrency");
 		UpdateCurrency();
 	}
 
