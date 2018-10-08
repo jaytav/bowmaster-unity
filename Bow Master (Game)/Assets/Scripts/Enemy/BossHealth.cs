@@ -9,7 +9,13 @@ public class BossHealth : MonoBehaviour {
 	public int currentHealth;
 	public Text bossHealthAmount;
 	public Slider bossHealthBar;
+	public Material whiteSprite;
+	public int flashAmount;
+	public float flashTime;
 
+	private SpriteRenderer bossSR;
+	private Shader whiteShader;
+	private Shader defaultShader;
 	private Animator bossAnim;
 	private float currentLerp;
 
@@ -19,6 +25,10 @@ public class BossHealth : MonoBehaviour {
 	}
 
 	void Start() {
+		bossSR = GetComponent<SpriteRenderer>();
+		whiteShader = Shader.Find("GUI/Text Shader");
+		defaultShader = Shader.Find("Sprites/Default");
+
 		bossAnim = GetComponent<Animator>();
 	}
 
@@ -31,6 +41,8 @@ public class BossHealth : MonoBehaviour {
 
 	public void TakeDamage(int amount) {
 		currentHealth -= amount;
+		StartCoroutine(TakeDamageFlash());
+
 		if (currentHealth <= 0) { Die(); }
 		UpdateHealth();
 	}
@@ -45,5 +57,22 @@ public class BossHealth : MonoBehaviour {
 		} else bossHealthAmount.text = currentHealth.ToString();
 
 		bossHealthBar.value = (float)currentHealth / (float)startingHealth;
+	}
+
+	IEnumerator TakeDamageFlash() { //visual effect enemy flashing to indicate they took damage
+		for (int i = 0; i < flashAmount; i++) {
+			WhiteSprite();
+			yield return new WaitForSeconds(flashTime);
+			DefaultSprite();
+			yield return new WaitForSeconds(flashTime);
+		}
+	}
+
+	void WhiteSprite() {
+		bossSR.material.shader = whiteShader;
+	}
+
+	void DefaultSprite() {
+		bossSR.material.shader = defaultShader;
 	}
 }

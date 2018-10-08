@@ -11,7 +11,12 @@ public class EnemyHealth : MonoBehaviour {
 	public float deathTime = 2f;
 	public Text enemyHealthAmount;
 	public int currencyValue;
+	public int flashAmount;
+	public float flashTime;
 
+	private SpriteRenderer enemySR;
+	private Shader whiteShader;
+	private Shader defaultShader;
 	private Animator enemyAnim;
 	private EnemyMovement enemyMovement;
 	private GameObject gameController;
@@ -22,6 +27,10 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	void Start() {
+		enemySR = GetComponent<SpriteRenderer>();
+		whiteShader = Shader.Find("GUI/Text Shader");
+		defaultShader = Shader.Find("Sprites/Default");
+
 		enemyAnim = GetComponent<Animator>();
 		enemyMovement = GetComponent<EnemyMovement>();
 
@@ -38,6 +47,7 @@ public class EnemyHealth : MonoBehaviour {
 	public void TakeDamage(int amount) {
 		currentHealth -= amount;
 
+		StartCoroutine(TakeDamageFlash());
 		if (currentHealth <= 0 && enemyMovement.enabled) {
 			Die();
 		}
@@ -54,6 +64,23 @@ public class EnemyHealth : MonoBehaviour {
 		yield return new WaitForSeconds(deathTime);
 		Instantiate(deadEnemy, transform.position, transform.rotation);
 		Destroy(gameObject);
+	}
+
+	IEnumerator TakeDamageFlash() { //visual effect enemy flashing to indicate they took damage
+		for (int i = 0; i < flashAmount; i++) {
+			WhiteSprite();
+			yield return new WaitForSeconds(flashTime);
+			DefaultSprite();
+			yield return new WaitForSeconds(flashTime);
+		}
+	}
+
+	void WhiteSprite() {
+		enemySR.material.shader = whiteShader;
+	}
+
+	void DefaultSprite() {
+		enemySR.material.shader = defaultShader;
 	}
 
 }

@@ -629,10 +629,6 @@ Prefab:
       propertyPath: bossHealthBar
       value: 
       objectReference: {fileID: 723069151}
-    - target: {fileID: 1486765651284600, guid: bc2b9fde06779d640bcf7285f256087e, type: 2}
-      propertyPath: m_TagString
-      value: Boss
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc2b9fde06779d640bcf7285f256087e, type: 2}
   m_IsPrefabParent: 0

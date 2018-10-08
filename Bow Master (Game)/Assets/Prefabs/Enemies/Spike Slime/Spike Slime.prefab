@@ -475,6 +475,8 @@ MonoBehaviour:
   deathTime: 2
   enemyHealthAmount: {fileID: 114510597328712854}
   currencyValue: 2
+  flashAmount: 2
+  flashTime: 0.1
 --- !u!114 &114609247693960870
 MonoBehaviour:
   m_ObjectHideFlags: 1

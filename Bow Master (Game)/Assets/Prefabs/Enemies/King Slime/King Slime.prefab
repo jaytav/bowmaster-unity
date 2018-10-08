@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114356067397921126}
   m_Layer: 10
   m_Name: King Slime
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -394,6 +394,9 @@ MonoBehaviour:
   currentHealth: 0
   bossHealthAmount: {fileID: 0}
   bossHealthBar: {fileID: 0}
+  whiteSprite: {fileID: 0}
+  flashAmount: 2
+  flashTime: 0.1
 --- !u!114 &114838113017046000
 MonoBehaviour:
   m_ObjectHideFlags: 1
