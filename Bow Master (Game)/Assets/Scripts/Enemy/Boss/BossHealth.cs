@@ -27,7 +27,6 @@ public class BossHealth : MonoBehaviour {
 		bossSR = GetComponent<SpriteRenderer>();
 		whiteShader = Shader.Find("GUI/Text Shader");
 		defaultShader = Shader.Find("Sprites/Default");
-
 		bossAnim = GetComponent<Animator>();
 	}
 
@@ -40,6 +39,7 @@ public class BossHealth : MonoBehaviour {
 
 	public void TakeDamage(int amount) {
 		currentHealth -= amount;
+		bossAnim.Play("KingSlime_Damaged");
 		StartCoroutine(TakeDamageFlash());
 
 		if (currentHealth <= 0) { Die(); }
