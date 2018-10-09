@@ -7,6 +7,7 @@ public class ArrowMovement : MonoBehaviour
 	public float speed = 500f;
 	public float reduceSpeed = 0.05f;
 	public Object brokenArrow;
+	public AudioClip arrowBreakAudio;
 
 	private int damage;
 	private float chargePower;
@@ -62,6 +63,7 @@ public class ArrowMovement : MonoBehaviour
 
 	void DestroyInstantiateArrow() {
 		Destroy(gameObject);
+		SoundManager.instance.PlaySingle(arrowBreakAudio);
 		Instantiate(brokenArrow, transform.position, Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))); //broken arrow takes place of destroyed arrow
 	}
 

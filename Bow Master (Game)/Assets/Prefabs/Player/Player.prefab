@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956428388143824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.59, y: 2.94, z: 0}
+  m_LocalPosition: {x: 6.93, y: 2.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4771632288424562}
@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 1398642870735098, guid: df1fcbb78cc8b0e41ae637c704b1d141, type: 2}
+  shootAudio: {fileID: 8300000, guid: 22102540b5ed3254883ee523a532b419, type: 3}
 --- !u!114 &114380229312524288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -421,6 +422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpPower: 4000
+  jumpWait: 0.2
+  moveAudio: {fileID: 8300000, guid: 0007be5427c583b4b9377662e61dc3e4, type: 3}
 --- !u!114 &114640031082075906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,6 +441,7 @@ MonoBehaviour:
   startingHealth: 3
   currentHealth: 0
   UIAnim: {fileID: 0}
+  takeDamageAudio: {fileID: 8300000, guid: f4648d9a25944fe4abce02c87b1c4c3a, type: 3}
 --- !u!114 &114981869723407646
 MonoBehaviour:
   m_ObjectHideFlags: 1

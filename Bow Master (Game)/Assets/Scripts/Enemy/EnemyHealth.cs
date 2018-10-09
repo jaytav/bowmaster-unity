@@ -13,6 +13,8 @@ public class EnemyHealth : MonoBehaviour {
 	public int currencyValue;
 	public int flashAmount;
 	public float flashTime;
+	public AudioClip enemyHurt;
+	public AudioClip enemyDie;
 
 	private SpriteRenderer enemySR;
 	private Shader whiteShader;
@@ -46,7 +48,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	public void TakeDamage(int amount) {
 		currentHealth -= amount;
-
+		SoundManager.instance.PlaySingle(enemyHurt);
 		StartCoroutine(TakeDamageFlash());
 		if (currentHealth <= 0 && enemyMovement.enabled) {
 			Die();
@@ -55,6 +57,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	void Die() {
 		enemyAnim.SetTrigger("Die");
+		SoundManager.instance.PlaySingle(enemyDie);
 		enemyMovement.enabled = false;
 		enemyManager.DropCurrency(currencyValue, transform.position);
 		StartCoroutine(WaitDeath());

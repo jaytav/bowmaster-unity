@@ -473,6 +473,8 @@ MonoBehaviour:
   currencyValue: 4
   flashAmount: 2
   flashTime: 0.1
+  enemyHurt: {fileID: 8300000, guid: 85488d74ef2bf9e4a987df884cba2c76, type: 3}
+  enemyDie: {fileID: 8300000, guid: 94e07a12c63d68b4b8283952e43ebf92, type: 3}
 --- !u!114 &114051316056129426
 MonoBehaviour:
   m_ObjectHideFlags: 1
