@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour {
 	public int startingHealth = 50;
 	public int currentHealth;
 	public Animator UIAnim;
+	public AudioClip takeDamageAudio;
 
 	private bool isDead;
 	private bool damaged;
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour {
 	public void TakeDamage(int amount) {
 		damaged = true;
 		UIAnim.Play("PlayerTakeDamage");
+		SoundManager.instance.PlaySingle(takeDamageAudio);
 		StartCoroutine(WaitTakeDamageImage());
 		currentHealth -= amount;
 

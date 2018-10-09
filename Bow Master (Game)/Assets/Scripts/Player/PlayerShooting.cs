@@ -9,6 +9,7 @@ public class PlayerShooting : MonoBehaviour
 	public static int damage = 1;
 	public static int range = 6;
 	public GameObject arrow; //arrow being spawned
+	public AudioClip shootAudio;
 
 	const float maxCharge = 1f; //maximum charge time
 
@@ -46,6 +47,9 @@ public class PlayerShooting : MonoBehaviour
 		{	
 			//create an instance of the arrow, located on arrowSpawn
 			Instantiate(arrow, arrowSpawn.position, arrowSpawn.rotation);
+			if (chargeTime >= 1f) {
+				SoundManager.instance.PlaySingle(shootAudio);
+			}
 			chargeTime = 0f; //reset charge time back to 0
 		}
 	}

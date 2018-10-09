@@ -6,6 +6,7 @@ public class DoorController : MonoBehaviour {
 
 	public float waitTime;
 	public BoxCollider2D doorCol;
+	public AudioClip doorAudio;
 
 	private bool isOpened;
 	private Animator doorAnim;
@@ -17,16 +18,12 @@ public class DoorController : MonoBehaviour {
 		doorTrigger = GetComponent<BoxCollider2D>();
 	}
 
-	void Update() {
-		if (isOpened) {
-			doorAnim.SetBool("IsOpened", isOpened);
-			StartCoroutine(WaitDoorOpen());
-		}
-	}
-
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.tag == "Player" || col.tag == "Projectile") {
 			isOpened = true;
+			SoundManager.instance.PlaySingle(doorAudio);
+			doorAnim.SetBool("IsOpened", isOpened);
+			StartCoroutine(WaitDoorOpen());
 		}
 	}
 

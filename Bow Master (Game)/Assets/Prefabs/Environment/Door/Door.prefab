@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 0.25
   doorCol: {fileID: 61121402094539058}
+  doorAudio: {fileID: 8300000, guid: 455c20daea63b2f4a8a585b1bd2778f9, type: 3}
 --- !u!212 &212648381643796532
 SpriteRenderer:
   m_ObjectHideFlags: 1
