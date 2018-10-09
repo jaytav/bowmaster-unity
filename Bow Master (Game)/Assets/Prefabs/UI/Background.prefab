@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198970387953052478}
   - component: {fileID: 199544374870458930}
   m_Layer: 0
-  m_Name: Particles
+  m_Name: Background Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222530230229745814}
   - component: {fileID: 114640210876042656}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Background Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,9 +56,10 @@ GameObject:
   - component: {fileID: 223105614284098946}
   - component: {fileID: 114084311068700368}
   - component: {fileID: 114958849466748696}
+  - component: {fileID: 114450335753211412}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +85,23 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114450335753211412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750342719032522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531432964d285924e9706885c69ecac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundImages:
+  - {fileID: 21300000, guid: de43b6980b3f52544bb7cafc70f7442d, type: 3}
+  - {fileID: 21300000, guid: 286b632da2f593e45acfc4f50f48cf4f, type: 3}
+  slowValue: 1
+  defaultColor: {r: 0.078431375, g: 0.078431375, b: 0.23529412, a: 1}
+  storeColor: {r: 0.64705884, g: 0.50980395, b: 0, a: 1}
 --- !u!114 &114640210876042656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,14 +114,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+  m_Color: {r: 0.078431375, g: 0.078431375, b: 0.23529412, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: de43b6980b3f52544bb7cafc70f7442d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ff756c2d777e8f41810a4d6b97ced09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -187,7 +205,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 930044711
+  randomSeed: -1192679076
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -747,7 +765,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1147,7 +1165,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     enabled: 0
-    mode: 0
+    mode: 1
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -1240,7 +1258,7 @@ ParticleSystem:
     flipV: 0
     randomRow: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 21300000, guid: a69d1ccccefbbd441b019f4f40f75255, type: 3}
   VelocityModule:
     enabled: 0
     x:

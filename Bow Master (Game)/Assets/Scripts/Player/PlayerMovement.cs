@@ -12,11 +12,21 @@ public class PlayerMovement : MonoBehaviour
 
 	private Rigidbody2D playerRB;
 	private SpriteRenderer playerSR;
+	private GameObject background;
+	private BackgroundController backgroundController;
 	
 	void Awake()
 	{
 		playerRB = GetComponent<Rigidbody2D>();
 		playerSR = GetComponent<SpriteRenderer>();
+	}
+
+	void Start() {
+		background = GameObject.FindGameObjectWithTag("Background");
+
+		if (background) { 
+			backgroundController = background.GetComponent<BackgroundController>();
+		}
 	}
 
 	void Update()
@@ -42,5 +52,21 @@ public class PlayerMovement : MonoBehaviour
 	IEnumerator waitJump() {
 		yield return new WaitForSeconds(0.2f);
 		playerRB.AddForce(Vector2.up * jumpPower); //jumps
+	}
+
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.tag == "Store") {
+			backgroundController.ChangeBackgroundStore();
+		}
+
+		if (col.tag == "BossRoom") {
+			backgroundController.ChangeBackgroundBoss();
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D col) {
+		if (col.tag == "Store" || col.tag == "BossRoom") {
+			backgroundController.ChangeBackgroundDefault();
+		}
 	}
 }
