@@ -16,6 +16,7 @@ public class SpawnItem : MonoBehaviour {
 
 		Instantiate(items[randomIndex],
 					transform.position + heightUp,
-					transform.rotation);
+					transform.rotation,
+					gameObject.transform);
 	}
 }

@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 4896833305672096}
   - component: {fileID: 61169051611865416}
   - component: {fileID: 114339093649265004}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Spawn Enemies Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

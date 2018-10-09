@@ -28,7 +28,6 @@ public class PlayerHealth : MonoBehaviour {
 	public void TakeDamage(int amount) {
 		damaged = true;
 		UIAnim.Play("PlayerTakeDamage");
-		UIAnim.Play("Idle");
 		StartCoroutine(WaitTakeDamageImage());
 		currentHealth -= amount;
 

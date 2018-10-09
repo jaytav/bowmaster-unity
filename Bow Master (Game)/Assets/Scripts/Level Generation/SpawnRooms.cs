@@ -40,7 +40,8 @@ public class SpawnRooms : MonoBehaviour {
 
 		Instantiate(spawn, //spawn spawn room
 					currentRoomPos, 
-					transform.rotation);
+					transform.rotation,
+					gameObject.transform);
 
 		currentRoomLength += roomLength; //increment length for next room
 	}
@@ -52,7 +53,8 @@ public class SpawnRooms : MonoBehaviour {
 
 		Instantiate(rooms[roomNum], //spawn room
 					currentRoomPos,
-					transform.rotation);
+					transform.rotation,
+					gameObject.transform);
 
 		currentRoomLength += roomLength; //increment length for next room
 	}
@@ -64,7 +66,8 @@ public class SpawnRooms : MonoBehaviour {
 
 		Instantiate(tunnel, //spawn tunnel
 					currentRoomPos, 
-					transform.rotation);
+					transform.rotation,
+					gameObject.transform);
 
 		currentRoomLength += roomLength; //increment length for next room
 	}
@@ -76,7 +79,8 @@ public class SpawnRooms : MonoBehaviour {
 
 		Instantiate(store, //spawn store
 					currentRoomPos, 
-					transform.rotation);
+					transform.rotation,
+					gameObject.transform);
 
 		currentRoomLength += roomLength; //increment length for next room
 	}
@@ -88,6 +92,7 @@ public class SpawnRooms : MonoBehaviour {
 
 		Instantiate(bossRoom,
 					currentRoomPos,
-					transform.rotation);
+					transform.rotation,
+					gameObject.transform);
 	}
 }
