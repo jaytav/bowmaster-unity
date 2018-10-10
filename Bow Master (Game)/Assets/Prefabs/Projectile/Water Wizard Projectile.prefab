@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  timeBeforeMove: 1
 --- !u!198 &198338690832401716
 ParticleSystem:
   m_ObjectHideFlags: 1
