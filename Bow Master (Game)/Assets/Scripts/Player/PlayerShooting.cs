@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerShooting : MonoBehaviour
 {
 	public static float chargeTime = 0f; //how long the player has charged the bow
-	public static int damage = 1;
+	public int damageInspector;
+	public static int damage;
 	public static int range = 6;
 	public GameObject arrow; //arrow being spawned
 	public AudioClip shootAudio;
@@ -22,6 +23,7 @@ public class PlayerShooting : MonoBehaviour
 
 	void Start()
 	{
+		damage = damageInspector;
 		playerRange = GameObject.FindGameObjectWithTag("PlayerRange");
 		playerRangeCol = playerRange.GetComponent<CircleCollider2D>();
 		playerRangePS = playerRange.GetComponent<ParticleSystem>();

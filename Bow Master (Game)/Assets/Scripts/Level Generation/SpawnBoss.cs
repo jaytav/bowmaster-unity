@@ -29,6 +29,7 @@ public class SpawnBoss : MonoBehaviour {
 		Transform playerTransform = cameraFollow.target.transform; //save player to assign back to camerafollow target
 		cameraFollow.target = bossSpawnPoint.transform;
 		yield return new WaitForSeconds(waitForSwitch);
+		
 		cameraFollow.target = playerTransform;
 		DestroyExcess();
 	}

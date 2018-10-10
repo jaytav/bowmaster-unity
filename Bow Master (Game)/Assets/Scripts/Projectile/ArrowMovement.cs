@@ -8,7 +8,7 @@ public class ArrowMovement : MonoBehaviour
 	public float reduceSpeed = 0.05f;
 	public Object brokenArrow;
 	public AudioClip arrowBreakAudio;
-
+	
 	private int damage;
 	private float chargePower;
 	private Rigidbody2D arrowRB;

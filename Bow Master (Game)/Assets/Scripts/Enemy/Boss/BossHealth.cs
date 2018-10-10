@@ -13,6 +13,8 @@ public class BossHealth : MonoBehaviour {
 	public float flashTime;
 
 	private SpriteRenderer bossSR;
+	private KingSlimeAttack kingSlimeAttack;
+	private BoxCollider2D kingSlimeCol;
 	private Shader whiteShader;
 	private Shader defaultShader;
 	private Animator bossAnim;
@@ -24,6 +26,8 @@ public class BossHealth : MonoBehaviour {
 	}
 
 	void Start() {
+		kingSlimeAttack = GetComponent<KingSlimeAttack>();
+		kingSlimeCol = GetComponent<BoxCollider2D>();
 		bossSR = GetComponent<SpriteRenderer>();
 		whiteShader = Shader.Find("GUI/Text Shader");
 		defaultShader = Shader.Find("Sprites/Default");
@@ -39,18 +43,22 @@ public class BossHealth : MonoBehaviour {
 
 	public void TakeDamage(int amount) {
 		currentHealth -= amount;
-		bossAnim.Play("KingSlime_Damaged");
-		StartCoroutine(TakeDamageFlash());
+		bossAnim.Play("KingSlime_Damaged"); //damaged animation
 
-		if (currentHealth <= 0) { Die(); }
+		if (currentHealth <= 0) {
+			Die();
+			flashTime = flashTime * 3f; //3 times flash time when dead
+		}
+		
+		StartCoroutine(TakeDamageFlash());
 		UpdateHealth();
 	}
 
 	void Die() {
-		print("boss ded lol");
+		StartCoroutine(WaitForFlash());
 	}
 
-	void UpdateHealth() {
+	void UpdateHealth() { //update the boss health UI
 		if (currentHealth <= 0) {
 			bossHealthAmount.text = "";
 		} else bossHealthAmount.text = currentHealth.ToString();
@@ -59,7 +67,7 @@ public class BossHealth : MonoBehaviour {
 	}
 
 	IEnumerator TakeDamageFlash() { //visual effect enemy flashing to indicate they took damage
-		for (int i = 0; i < flashAmount; i++) {
+		for (int i = 0; i < flashAmount; i++) { //flashes multiple times
 			WhiteSprite();
 			yield return new WaitForSeconds(flashTime);
 			DefaultSprite();
@@ -67,11 +75,20 @@ public class BossHealth : MonoBehaviour {
 		}
 	}
 
+	IEnumerator WaitForFlash() { //wait for flash to finish
+		yield return new WaitForSeconds((flashTime * flashAmount * 2));
+		bossAnim.Play("KingSlime_Die"); //play death animation
+		kingSlimeCol.enabled = false; //disable collider
+		this.enabled = false; //disable bosshealth script
+		kingSlimeAttack.enabled = false; //disable king slime attack script
+		
+	}
+
 	void WhiteSprite() {
-		bossSR.material.shader = whiteShader;
+		bossSR.material.shader = whiteShader; //turn boss white
 	}
 
 	void DefaultSprite() {
-		bossSR.material.shader = defaultShader;
+		bossSR.material.shader = defaultShader; //turn boss back to default color
 	}
 }

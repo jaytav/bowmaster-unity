@@ -8,7 +8,6 @@ public class CameraFollow : MonoBehaviour {
 
 	public float speed;
 	public float smoothSpeed = 0.125f;
-	public Vector3 offset;
 
 	private Vector2 startPos;
 	private Vector2 targetPos;
@@ -24,7 +23,7 @@ public class CameraFollow : MonoBehaviour {
 						target.position.y + mouseY);
 		directionToTarget = targetPos - startPos;
 
-		float distance = -Vector2.Distance(targetPos, transform.position);
+		float distance = Vector2.Distance(targetPos, transform.position);
 
 		transform.Translate((directionToTarget.x * (speed - distance/10) * Time.deltaTime),
 							(directionToTarget.y * (speed - distance/10) * Time.deltaTime),
@@ -34,5 +33,6 @@ public class CameraFollow : MonoBehaviour {
 		// 	Vector3 desiredPosition = target.position + offset;
 		// 	transform.position = desiredPosition;
 		// }
+	
 	}
 }
