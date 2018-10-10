@@ -14,6 +14,8 @@ public class SoundManager : MonoBehaviour {
 		if (instance == null) instance = this;
 		//if an instance does exist, destroy this
 		else if (instance != this) Destroy(this);
+
+		DontDestroyOnLoad(gameObject);
 	}
 
 	public void PlaySingle(AudioClip clip) {
