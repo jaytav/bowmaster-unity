@@ -10,6 +10,8 @@ public class CameraManager : MonoBehaviour {
 	public float speed;
 	public float smoothSpeed = 0.125f;
 	public float defaultZoom = 12f;
+	public float dampTime;
+	public float velocity;
 
 	private Vector2 startPos;
 	private Vector2 targetPos;
@@ -45,8 +47,23 @@ public class CameraManager : MonoBehaviour {
 	}
 
 	void LateUpdate() {
-		float mouseX = (Input.mousePosition.x / Screen.width);
-		float mouseY = (Input.mousePosition.y / Screen.height);
+
+		Vector3 targetPos = target.transform.position;
+		float mouseX = Input.mousePosition.x / Screen.width;
+		float mouseY = Input.mousePosition.y / Screen.height;
+		transform.position = new Vector3(mouseX + targetPos.x, mouseY + targetPos.y, -10);
+
+		/* 
+
+		float maxScreenPoint = 0.8f;
+ Vector3 mousePos = Input.mousePosition * maxScreenPoint    + new Vector3(Screen.width, Screen.height, 0f) * ((1f - maxScreenPoint) * 0.5f);
+ //Vector3 position = (target.position + GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition)) / 2f;
+ Vector3 position = (target.position + GetComponent<Camera>().ScreenToWorldPoint(mousePos)) / 2f;
+ Vector3 destination = new Vector3(position.x, position.y, -10);
+ transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+
+		float mouseX = (Input.mousePosition.x / (Screen.width * 1.2f));
+		float mouseY = (Input.mousePosition.y / (Screen.width * 1.2f));
 
 		startPos = transform.position;
 		targetPos = 
@@ -59,7 +76,7 @@ public class CameraManager : MonoBehaviour {
 		transform.Translate((directionToTarget.x * (speed - distance/10) * Time.deltaTime),
 							(directionToTarget.y * (speed - distance/10) * Time.deltaTime),
 							0f);
-		
+		*/
 		// if (target) {
 		// 	Vector3 desiredPosition = target.position + offset;
 		// 	transform.position = desiredPosition;
