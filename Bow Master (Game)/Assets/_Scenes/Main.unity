@@ -162,6 +162,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114478180159132492, guid: ea12fa7abb63f234285fd2adf864c139,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea12fa7abb63f234285fd2adf864c139, type: 2}
   m_IsPrefabParent: 0
@@ -360,11 +365,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.3
+      value: -20.02
       objectReference: {fileID: 0}
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.87
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.z
@@ -527,7 +532,7 @@ Prefab:
     - target: {fileID: 224912168749983782, guid: bc2b9fde06779d640bcf7285f256087e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4508677797857896, guid: bc2b9fde06779d640bcf7285f256087e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -565,6 +570,10 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486765651284600, guid: bc2b9fde06779d640bcf7285f256087e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc2b9fde06779d640bcf7285f256087e, type: 2}
@@ -890,3 +899,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943,
     type: 2}
   m_PrefabInternal: {fileID: 807719842}
+--- !u!1 &2081421877 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1661028310667600, guid: ea12fa7abb63f234285fd2adf864c139,
+    type: 2}
+  m_PrefabInternal: {fileID: 61152666}
+--- !u!114 &2081421882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2081421877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1cc2a0ad6db3a408518578ccd4a002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  speed: 5
+  smoothSpeed: 0.125
+  defaultZoom: 12

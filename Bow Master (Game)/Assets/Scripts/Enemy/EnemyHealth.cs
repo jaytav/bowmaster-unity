@@ -21,10 +21,13 @@ public class EnemyHealth : MonoBehaviour {
 	private Shader defaultShader;
 	private Animator enemyAnim;
 	private EnemyMovement enemyMovement;
+	private EnemyAttack enemyAttack;
 	private GameObject gameController;
 	private EnemyManager enemyManager;
+	private bool isDead;
 
 	void Awake() {
+		isDead = false;
 		currentHealth = startingHealth;
 	}
 
@@ -35,14 +38,17 @@ public class EnemyHealth : MonoBehaviour {
 
 		enemyAnim = GetComponent<Animator>();
 		enemyMovement = GetComponent<EnemyMovement>();
+		enemyAttack = GetComponent<EnemyAttack>();
 
 		gameController = GameObject.FindGameObjectWithTag("GameController");
 		enemyManager = gameController.GetComponent<EnemyManager>();
 	}
 
 	void Update() {
-		if (currentHealth <= 0) {
+		if (currentHealth <= 0 && isDead == false) {
 			enemyHealthAmount.text = "";
+			Die();
+			isDead = true;
 		} else enemyHealthAmount.text = currentHealth.ToString();
 	}
 
@@ -50,15 +56,13 @@ public class EnemyHealth : MonoBehaviour {
 		currentHealth -= amount;
 		SoundManager.instance.PlaySingle(enemyHurt);
 		StartCoroutine(TakeDamageFlash());
-		if (currentHealth <= 0 && enemyMovement.enabled) {
-			Die();
-		}
 	}
 
 	void Die() {
+		enemyMovement.isMoving = false;
+		enemyAttack.enabled = false;
 		enemyAnim.SetTrigger("Die");
 		SoundManager.instance.PlaySingle(enemyDie);
-		enemyMovement.enabled = false;
 		enemyManager.DropCurrency(currencyValue, transform.position);
 		StartCoroutine(WaitDeath());
 	}

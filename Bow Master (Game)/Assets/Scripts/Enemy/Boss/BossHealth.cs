@@ -11,7 +11,9 @@ public class BossHealth : MonoBehaviour {
 	public Slider bossHealthBar;
 	public int flashAmount;
 	public float flashTime;
+	public Animation deathAnim;
 
+	private float deathAnimLength;
 	private SpriteRenderer bossSR;
 	private KingSlimeAttack kingSlimeAttack;
 	private BoxCollider2D kingSlimeCol;
@@ -32,6 +34,7 @@ public class BossHealth : MonoBehaviour {
 		whiteShader = Shader.Find("GUI/Text Shader");
 		defaultShader = Shader.Find("Sprites/Default");
 		bossAnim = GetComponent<Animator>();
+		deathAnimLength = deathAnim.clip.length;
 	}
 
 	void Update() {
@@ -56,6 +59,7 @@ public class BossHealth : MonoBehaviour {
 
 	void Die() {
 		StartCoroutine(WaitForFlash());
+		StartCoroutine(WaitForTargetChange());
 	}
 
 	void UpdateHealth() { //update the boss health UI
@@ -80,8 +84,14 @@ public class BossHealth : MonoBehaviour {
 		bossAnim.Play("KingSlime_Die"); //play death animation
 		kingSlimeCol.enabled = false; //disable collider
 		this.enabled = false; //disable bosshealth script
-		kingSlimeAttack.enabled = false; //disable king slime attack script
-		
+		kingSlimeAttack.enabled = false; //disable king slime attack script	
+	}
+
+	IEnumerator WaitForTargetChange() {
+		CameraManager.instance.ChangeTarget(gameObject.transform);
+		CameraManager.instance.CameraZoom(CameraManager.instance.defaultZoom);
+		yield return new WaitForSeconds(deathAnimLength);
+		CameraManager.instance.ChangeTarget(CameraManager.instance.playerTransform);
 	}
 
 	void WhiteSprite() {
