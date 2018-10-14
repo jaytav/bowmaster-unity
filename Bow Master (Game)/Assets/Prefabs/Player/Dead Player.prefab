@@ -380,7 +380,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 77ed397a2437a914295ab930af85a7bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ab0f63cc3ef3c34cb966d3cfabf3aba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -424,7 +424,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c02b086d58b18f841835eecba42110e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33e8b10cdfd054f4fae7306efedc8a0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -468,7 +468,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 045718649e8b5584291ed4b1a7617db9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70a91bc800f87414980f31c93f35ebd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -512,7 +512,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d89d1eaf838abba42ad3470c5bf904ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f9cde5d354a8dd4f813336645eb7238, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
