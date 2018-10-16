@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956428388143824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.93, y: 2.94, z: 0}
+  m_LocalPosition: {x: 3.22, y: 2.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4771632288424562}
@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e4143189c33684999e25f153fad0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageInspector: 2
   arrow: {fileID: 1398642870735098, guid: df1fcbb78cc8b0e41ae637c704b1d141, type: 2}
   shootAudio: {fileID: 8300000, guid: 22102540b5ed3254883ee523a532b419, type: 3}
 --- !u!114 &114380229312524288
@@ -7239,7 +7240,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 44986909b5a771643bd594234f60dbb5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fc920b5b4f1eab47844707f4373e6ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

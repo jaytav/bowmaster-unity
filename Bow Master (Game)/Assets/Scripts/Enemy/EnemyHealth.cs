@@ -45,11 +45,15 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	void Update() {
-		if (currentHealth <= 0 && isDead == false) {
-			enemyHealthAmount.text = "";
-			Die();
-			isDead = true;
-		} else enemyHealthAmount.text = currentHealth.ToString();
+
+		if (!isDead) {
+			enemyHealthAmount.text = currentHealth.ToString();
+			if (currentHealth <= 0) {
+				Die();
+				isDead = true;
+				enemyHealthAmount.text = "0";
+			}
+		}
 	}
 
 	public void TakeDamage(int amount) {
@@ -60,7 +64,6 @@ public class EnemyHealth : MonoBehaviour {
 
 	void Die() {
 		enemyMovement.isMoving = false;
-		enemyAttack.enabled = false;
 		enemyAnim.SetTrigger("Die");
 		SoundManager.instance.PlaySingle(enemyDie);
 		enemyManager.DropCurrency(currencyValue, transform.position);

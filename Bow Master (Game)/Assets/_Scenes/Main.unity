@@ -401,22 +401,6 @@ Prefab:
       propertyPath: UIAnim
       value: 
       objectReference: {fileID: 1136426823}
-    - target: {fileID: 114351558134534050, guid: f7e0b4fe7f7830143a9c78686e719943,
-        type: 2}
-      propertyPath: damageInspector
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 212260003291758096, guid: f7e0b4fe7f7830143a9c78686e719943,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212260003291758096, guid: f7e0b4fe7f7830143a9c78686e719943,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3fc920b5b4f1eab47844707f4373e6ce,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
   m_IsPrefabParent: 0
@@ -468,7 +452,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4729081461705534, guid: 4128cf94f01276e4095687c3e1675f97, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1362546713574404, guid: 4128cf94f01276e4095687c3e1675f97, type: 2}
       propertyPath: m_IsActive
@@ -575,7 +559,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4508677797857896, guid: bc2b9fde06779d640bcf7285f256087e, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 212064825158265164, guid: bc2b9fde06779d640bcf7285f256087e,
         type: 2}
@@ -684,7 +668,7 @@ Transform:
   m_LocalScale: {x: 24.366135, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1779200939
 Prefab:
@@ -903,7 +887,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2015947575 stripped
 Transform:
