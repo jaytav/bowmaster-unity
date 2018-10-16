@@ -59,7 +59,7 @@ public class BossHealth : MonoBehaviour {
 
 	void Die() {
 		StartCoroutine(WaitForFlash());
-		StartCoroutine(WaitForTargetChange());
+		StartCoroutine(WaitForCamera());
 	}
 
 	void UpdateHealth() { //update the boss health UI
@@ -80,14 +80,14 @@ public class BossHealth : MonoBehaviour {
 	}
 
 	IEnumerator WaitForFlash() { //wait for flash to finish
-		yield return new WaitForSeconds((flashTime * flashAmount * 2));
+		yield return new WaitForSeconds((flashTime * 10f));
 		bossAnim.Play("KingSlime_Die"); //play death animation
 		kingSlimeCol.enabled = false; //disable collider
 		this.enabled = false; //disable bosshealth script
 		kingSlimeAttack.enabled = false; //disable king slime attack script	
 	}
 
-	IEnumerator WaitForTargetChange() {
+	IEnumerator WaitForCamera() {
 		CameraManager.instance.ChangeTarget(gameObject.transform);
 		CameraManager.instance.CameraZoom(CameraManager.instance.defaultZoom);
 		yield return new WaitForSeconds(deathAnimLength);

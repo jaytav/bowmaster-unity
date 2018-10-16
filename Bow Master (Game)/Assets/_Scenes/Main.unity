@@ -162,6 +162,11 @@ Prefab:
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114843621655742254, guid: ea12fa7abb63f234285fd2adf864c139,
+        type: 2}
+      propertyPath: offset.z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114478180159132492, guid: ea12fa7abb63f234285fd2adf864c139, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ea12fa7abb63f234285fd2adf864c139, type: 2}
@@ -361,11 +366,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.22
+      value: -17.39
       objectReference: {fileID: 0}
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.77
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.z
@@ -401,6 +406,28 @@ Prefab:
       propertyPath: UIAnim
       value: 
       objectReference: {fileID: 1136426823}
+    - target: {fileID: 114351558134534050, guid: f7e0b4fe7f7830143a9c78686e719943,
+        type: 2}
+      propertyPath: damageInspector
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657047003347696, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704073386457680, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224675384052330862, guid: f7e0b4fe7f7830143a9c78686e719943,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771632288424562, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
   m_IsPrefabParent: 0
@@ -456,7 +483,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1362546713574404, guid: 4128cf94f01276e4095687c3e1675f97, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4128cf94f01276e4095687c3e1675f97, type: 2}

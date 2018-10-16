@@ -6,29 +6,26 @@ public class CameraManager : MonoBehaviour {
 
 	public static CameraManager instance = null;
 	public Transform playerTransform;
-	
+	public Transform target;
+	public Vector3 offset;
 	public float speed;
-	public float smoothSpeed = 0.125f;
+	public float smoothSpeed = 0.01f;
 	public float defaultZoom = 12f;
-	public float dampTime;
-	public float velocity;
 
-	private Vector2 startPos;
-	private Vector2 targetPos;
-	private Vector2 directionToTarget;
-
-	private float lerpElapsed = 0f;
-	private float lerpDuration = 1f;
+	private float screenWidth;
+	private float screenHeight;
+	private float zoomLerpElapsed = 0f;
+	private float zoomLerpDuration = 1f;
 	private float prevZoom;
 	private float targetZoom;
-	private Transform target;
+	private Vector3 velocity = Vector3.zero;
 
 	void Start() {
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		
 		if (player) { 
-			playerTransform = player.transform; 
-			target = playerTransform; 
+			playerTransform = player.transform;
+			target = player.transform;
 		}
 
 		//check if there is an instance of SoundManager, if not set to this
@@ -38,59 +35,31 @@ public class CameraManager : MonoBehaviour {
 		Camera.main.orthographic = true;
 		prevZoom = Camera.main.orthographicSize;
 		targetZoom = prevZoom;
-		
+		screenWidth = Screen.width;
+		screenHeight = Screen.height;
 	}
 
 	void Update() {
-		lerpElapsed += Time.deltaTime / lerpDuration;
-		Camera.main.orthographicSize = Mathf.Lerp(prevZoom, targetZoom, lerpElapsed);
+		zoomLerpElapsed += Time.deltaTime / zoomLerpDuration;
+		Camera.main.orthographicSize = Mathf.Lerp(prevZoom, targetZoom, zoomLerpElapsed);
 	}
 
 	void LateUpdate() {
-
-		Vector3 targetPos = target.transform.position;
-		float mouseX = Input.mousePosition.x / Screen.width;
-		float mouseY = Input.mousePosition.y / Screen.height;
-		transform.position = new Vector3(mouseX + targetPos.x, mouseY + targetPos.y, -10);
-
-		/* 
-
-		float maxScreenPoint = 0.8f;
- Vector3 mousePos = Input.mousePosition * maxScreenPoint    + new Vector3(Screen.width, Screen.height, 0f) * ((1f - maxScreenPoint) * 0.5f);
- //Vector3 position = (target.position + GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition)) / 2f;
- Vector3 position = (target.position + GetComponent<Camera>().ScreenToWorldPoint(mousePos)) / 2f;
- Vector3 destination = new Vector3(position.x, position.y, -10);
- transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-
-		float mouseX = (Input.mousePosition.x / (Screen.width * 1.2f));
-		float mouseY = (Input.mousePosition.y / (Screen.width * 1.2f));
-
-		startPos = transform.position;
-		targetPos = 
-			new Vector2(target.position.x + mouseX,
-						target.position.y + mouseY);
-		directionToTarget = targetPos - startPos;
-
-		float distance = Vector2.Distance(targetPos, transform.position);
-
-		transform.Translate((directionToTarget.x * (speed - distance/10) * Time.deltaTime),
-							(directionToTarget.y * (speed - distance/10) * Time.deltaTime),
-							0f);
-		*/
-		// if (target) {
-		// 	Vector3 desiredPosition = target.position + offset;
-		// 	transform.position = desiredPosition;
-		// }
-	
+		float mouseX = Input.mousePosition.x / screenWidth;
+		float mouseY = Input.mousePosition.y / screenHeight;
+		
+		Vector3 targetPos = target.transform.position + new Vector3(mouseX, mouseY) + offset;
+print(mouseX + " " + mouseY + " " + targetPos.x + " " + targetPos.y);
+		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.25f);
 	}
 
 	public void CameraZoom(float targZoom) {
-		lerpElapsed = 0f;
+		zoomLerpElapsed = 0f;
 		prevZoom = Camera.main.orthographicSize;
 		targetZoom = targZoom;
 	}
 
-	public void ChangeTarget(Transform targTransform) {
-		target = targTransform;
+	public void ChangeTarget(Transform newTransform) {
+		target = newTransform;
 	}
 }

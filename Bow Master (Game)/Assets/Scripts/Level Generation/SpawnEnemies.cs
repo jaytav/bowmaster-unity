@@ -10,14 +10,17 @@ public class SpawnEnemies : MonoBehaviour {
 
 	private float timeToDestroy;
 	private float timeToWaitForParticles;
+	private float timeToWaitForCamera;
 
 	void Start() {
 		timeToDestroy = 2f;
 		timeToWaitForParticles = 0.5f;
+		timeToWaitForCamera = 1f;
 
 		foreach (Transform child in enemySpawnPoints) {
 			Instantiate(enemySpawnPS, child.position, child.rotation, child); //creates enemy spawn particle effect
 		}
+		StartCoroutine(WaitForCamera());
 		StartCoroutine(WaitForParticles());
 	}
 
@@ -32,6 +35,15 @@ public class SpawnEnemies : MonoBehaviour {
 			int enemyNum = Random.Range(0, enemies.Length); //randomly choose enemy
 			Instantiate(enemies[enemyNum], child.position, child.rotation, gameObject.transform); //spawn enemy on iterated child with room as parent
 		}
+		
+	}
+
+	IEnumerator WaitForCamera() {
+		CameraManager.instance.ChangeTarget(gameObject.transform);
+		CameraManager.instance.CameraZoom(12f);
+		yield return new WaitForSeconds(timeToWaitForCamera);
+		CameraManager.instance.ChangeTarget(CameraManager.instance.playerTransform);
+		CameraManager.instance.CameraZoom(CameraManager.instance.defaultZoom);
 		DestroyExcess();
 	}
 }
