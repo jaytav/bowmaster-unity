@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+	public SpriteRenderer playerSR;
 	public static float moveHorizontal;
 	public static int direction = 1; //what direction player is facing 1 or -1
+	public int inspectorDirection;
 	public float speed = 5f;
 	public float jumpPower = 300f;
 	public float jumpWait;
 	public AudioClip moveAudio;
 
 	private Rigidbody2D playerRB;
-	private SpriteRenderer playerSR;
 	private GameObject background;
 	private BackgroundController backgroundController;
 	private bool jumped;
@@ -22,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
 	void Awake()
 	{
 		playerRB = GetComponent<Rigidbody2D>();
-		playerSR = GetComponent<SpriteRenderer>();
 	}
 
 	void Start() {
@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
+		inspectorDirection = direction;
 		moveHorizontal = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
 		
 		transform.Translate(moveHorizontal, 0, 0); //horizontal movement
@@ -63,8 +64,17 @@ public class PlayerMovement : MonoBehaviour
 
 	void Flip(float h) //flips player sprite based on horziontal direction
 	{
-		if (h > 0) { playerSR.flipX = false; direction = 1; } //sprite faces forward
-		if (h < 0) { playerSR.flipX = true; direction = -1; } //sprite faces backwards
+		if (playerSR && PlayerShooting.chargeTime == 0f) { //only if sprite exists and player not charging
+			if (h > 0) { direction = 1; } //sprite faces forward
+			if (h < 0) { direction = -1; } //sprite faces backwards
+		}
+
+		if (direction == 1) {
+			playerSR.flipX = false;
+		}
+		else if (direction == -1) {
+			playerSR.flipX = true;
+		}
 	}
 
 	IEnumerator waitJump() {

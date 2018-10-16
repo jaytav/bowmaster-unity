@@ -40,6 +40,7 @@ public class PlayerShooting : MonoBehaviour
 		{
 			//increase charge time based on time held
 			chargeTime += Time.deltaTime;
+			PlayerMovement.direction = -1;
 			
 			//limit maximum charge time to 1 second
 			if (chargeTime > maxCharge) { chargeTime = maxCharge; }

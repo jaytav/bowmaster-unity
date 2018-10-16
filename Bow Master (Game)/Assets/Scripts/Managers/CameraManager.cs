@@ -49,7 +49,6 @@ public class CameraManager : MonoBehaviour {
 		float mouseY = Input.mousePosition.y / screenHeight;
 		
 		Vector3 targetPos = target.transform.position + new Vector3(mouseX, mouseY) + offset;
-print(mouseX + " " + mouseY + " " + targetPos.x + " " + targetPos.y);
 		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.25f);
 	}
 
