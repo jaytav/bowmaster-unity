@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224773968523089354}
-  - component: {fileID: 114604554469451374}
+  - component: {fileID: 114731990868772288}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114604554469451374
+--- !u!114 &114731990868772288
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

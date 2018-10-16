@@ -49,7 +49,7 @@ public class PlayerShooting : MonoBehaviour
 		if (Input.GetButtonUp("Fire1"))
 		{	
 			//create an instance of the arrow, located on arrowSpawn
-			Instantiate(arrow, arrowSpawn.position, arrowSpawn.rotation);
+			Instantiate(arrow, arrowSpawn.position, PlayerRotate.lastRotation);
 			if (chargeTime >= 1f) {
 				SoundManager.instance.PlaySingle(shootAudio);
 			}

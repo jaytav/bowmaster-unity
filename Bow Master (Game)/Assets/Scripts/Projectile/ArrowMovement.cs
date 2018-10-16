@@ -9,6 +9,7 @@ public class ArrowMovement : MonoBehaviour
 	public Object brokenArrow;
 	public AudioClip arrowBreakAudio;
 	
+	private Vector2 directionToMouse;
 	private int damage;
 	private float chargePower;
 	private Rigidbody2D arrowRB;
@@ -25,15 +26,23 @@ public class ArrowMovement : MonoBehaviour
 		arrowRB = GetComponent<Rigidbody2D>();
 		arrowSpriteRenderer = GetComponent<SpriteRenderer>();
 
-		//flip arrow sprite based on player's direction
-		if (PlayerMovement.direction == -1) { arrowSpriteRenderer.flipX = true; }
+		SetDireciton();
+
 		
-		arrowRB.AddForce(Vector2.up * speed * reduceSpeed); //push arrow up a bit
+
+		//arrowRB.AddForce(Vector2.up * speed * reduceSpeed); //push arrow up a bit
 
 		//launch arrow forward
 		if (chargePower >= 1f) {
-			arrowRB.AddForce(Vector2.right * PlayerMovement.direction * speed * chargePower); //power shot
+			//arrowRB.AddForce(Vector2.right * PlayerMovement.direction * speed * chargePower); //power shot
 		}
+	}
+
+	void Update() {
+		transform.Translate(directionToMouse.x * Time.deltaTime * speed,
+							directionToMouse.y * Time.deltaTime * speed,
+							0f,
+							Space.World);
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
@@ -41,6 +50,7 @@ public class ArrowMovement : MonoBehaviour
 		if (col.tag == "PlayerRange") { //ignores collision inside player range
 			return;
 		}
+		print(col.name);
 		DestroyInstantiateArrow();
 
 		if (col.tag == "Enemy" && chargePower >= 1f) {
@@ -51,7 +61,6 @@ public class ArrowMovement : MonoBehaviour
 		if (col.tag == "Boss" && chargePower >= 1f) {
 			BossHealth bossHealth = col.gameObject.GetComponent<BossHealth>();
 			bossHealth.TakeDamage(damage);
-			print("Hit boss lol");
 		}
 	}
 
@@ -64,7 +73,13 @@ public class ArrowMovement : MonoBehaviour
 	void DestroyInstantiateArrow() {
 		Destroy(gameObject);
 		SoundManager.instance.PlaySingle(arrowBreakAudio);
-		Instantiate(brokenArrow, transform.position, Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))); //broken arrow takes place of destroyed arrow
+		Instantiate(brokenArrow, transform.position, transform.rotation); //broken arrow takes place of destroyed arrow
+	}
+
+	void SetDireciton() { //get arrow and mouse positions, then calculate direction
+		Vector2 arrowPos = transform.position;
+		Vector2 mousePoint = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		directionToMouse = mousePoint - arrowPos;
 	}
 
 }

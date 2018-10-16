@@ -18,7 +18,6 @@ public class HealthBar : MonoBehaviour {
 
 	void Update() {
 		healthBar.fillAmount = (float)playerHealth.currentHealth / (float)playerHealth.startingHealth;
-
 		healthNum.text = playerHealth.currentHealth.ToString();
 	}
 }

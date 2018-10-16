@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateSprite : MonoBehaviour {
+public class PlayerRotate : MonoBehaviour {
 
+	public static Quaternion lastRotation;
 	public float smoothSpeed;
 
 	private Quaternion defaultRotation;
@@ -23,6 +24,7 @@ public class RotateSprite : MonoBehaviour {
 				0f,
 				0f,
 				Mathf.Atan2(playerPos.y - mousePos.y, playerPos.x - mousePos.x) * Mathf.Rad2Deg));
+			lastRotation = transform.rotation;
 		 }
 		 else transform.rotation = Quaternion.Slerp(transform.rotation, defaultRotation, Time.deltaTime * smoothSpeed); //smoothly rotate back to normal
 	}
