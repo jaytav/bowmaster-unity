@@ -26,16 +26,7 @@ public class ArrowMovement : MonoBehaviour
 		arrowRB = GetComponent<Rigidbody2D>();
 		arrowSpriteRenderer = GetComponent<SpriteRenderer>();
 
-		SetDireciton();
-
-		
-
-		//arrowRB.AddForce(Vector2.up * speed * reduceSpeed); //push arrow up a bit
-
-		//launch arrow forward
-		if (chargePower >= 1f) {
-			//arrowRB.AddForce(Vector2.right * PlayerMovement.direction * speed * chargePower); //power shot
-		}
+		SetDirection();
 	}
 
 	void Update() {
@@ -76,7 +67,7 @@ public class ArrowMovement : MonoBehaviour
 		Instantiate(brokenArrow, transform.position, transform.rotation); //broken arrow takes place of destroyed arrow
 	}
 
-	void SetDireciton() { //get arrow and mouse positions, then calculate direction
+	void SetDirection() { //get arrow and mouse positions, then calculate direction
 		Vector2 arrowPos = transform.position;
 		Vector2 mousePoint = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		directionToMouse = mousePoint - arrowPos;

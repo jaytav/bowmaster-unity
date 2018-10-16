@@ -11,9 +11,8 @@ public class CameraManager : MonoBehaviour {
 	public float speed;
 	public float smoothSpeed = 0.01f;
 	public float defaultZoom = 12f;
+	public float mouseMultiplier;
 
-	private float screenWidth;
-	private float screenHeight;
 	private float zoomLerpElapsed = 0f;
 	private float zoomLerpDuration = 1f;
 	private float prevZoom;
@@ -35,8 +34,6 @@ public class CameraManager : MonoBehaviour {
 		Camera.main.orthographic = true;
 		prevZoom = Camera.main.orthographicSize;
 		targetZoom = prevZoom;
-		screenWidth = Screen.width;
-		screenHeight = Screen.height;
 	}
 
 	void Update() {
@@ -45,11 +42,9 @@ public class CameraManager : MonoBehaviour {
 	}
 
 	void LateUpdate() {
-		float mouseX = Input.mousePosition.x / screenWidth;
-		float mouseY = Input.mousePosition.y / screenHeight;
-		
-		Vector3 targetPos = target.transform.position + new Vector3(mouseX, mouseY) + offset;
-		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.25f);
+		Vector3 mousePos = (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 targetPos = (target.transform.position + mousePos + offset)/2;
+		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.2f);
 	}
 
 	public void CameraZoom(float targZoom) {

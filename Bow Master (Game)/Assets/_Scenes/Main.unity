@@ -167,6 +167,11 @@ Prefab:
       propertyPath: offset.z
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 114843621655742254, guid: ea12fa7abb63f234285fd2adf864c139,
+        type: 2}
+      propertyPath: mouseMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114478180159132492, guid: ea12fa7abb63f234285fd2adf864c139, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ea12fa7abb63f234285fd2adf864c139, type: 2}
@@ -315,11 +320,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -21.42
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -8.2
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 4205015304874716, guid: f7e0b4fe7f7830143a9c78686e719943, type: 2}
       propertyPath: m_LocalPosition.z
