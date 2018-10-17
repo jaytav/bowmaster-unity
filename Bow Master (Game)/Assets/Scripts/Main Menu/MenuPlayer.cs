@@ -11,21 +11,24 @@ public class MenuPlayer : MonoBehaviour {
 	public GameObject arrow;
 
 	private Image playerImage;
-	private Vector2 targetPos;
 	private bool isShooting;
 	private bool isMoving;
+	private Vector3 velocity = Vector3.zero;
 
 	void Start() {
 		isMoving = true;
 		playerImage = GetComponent<Image>();
-		targetPos = transform.position;
 	}
 
 	void Update() {
 		if (isMoving) {
-			targetPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-			Vector2 followYOnly = new Vector2(transform.position.x, targetPos.y);
-			transform.position = Vector2.Lerp(followYOnly, transform.position, Time.deltaTime);
+			// targetPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+			// Vector2 followYOnly = new Vector2(transform.position.x, targetPos.y);
+			// transform.position = Vector2.Lerp(followYOnly, transform.position, Time.deltaTime);
+
+			Vector2 targetPos = new Vector2(50f, Input.mousePosition.y);
+			//mousePos.x = 100;
+			transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.1f);
 		}
 	}
 
@@ -40,7 +43,7 @@ public class MenuPlayer : MonoBehaviour {
 			yield return new WaitForSeconds(animSpeed);
 		}
 		playerImage.sprite = playerModel;
-		GameObject newArrow = Instantiate(arrow, transform.position, transform.rotation);
+		GameObject newArrow = Instantiate(arrow, transform.position, transform.rotation, gameObject.transform);
 		newArrow.transform.SetParent(gameObject.transform.parent);
 		isMoving = true;
 	}

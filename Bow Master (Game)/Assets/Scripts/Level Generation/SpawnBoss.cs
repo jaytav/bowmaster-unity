@@ -10,7 +10,6 @@ public class SpawnBoss : MonoBehaviour {
 	public float waitForSwitch;
 
 	private GameObject camera;
-	private CameraFollow cameraFollow;
 	private float timeToDestroy;
 	private float timeToWaitForParticles;
 
