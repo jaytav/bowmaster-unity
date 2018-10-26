@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 800
+  arrowBreakClip: {fileID: 8300000, guid: 35d91b036af939f4a964dd6408dbad22, type: 3}
 --- !u!222 &222246634012027502
 CanvasRenderer:
   m_ObjectHideFlags: 1

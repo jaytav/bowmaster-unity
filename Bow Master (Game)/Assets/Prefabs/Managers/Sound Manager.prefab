@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4535842213304830}
-  - component: {fileID: 82087119924033248}
-  - component: {fileID: 82104297043248730}
-  - component: {fileID: 82506742923080060}
   - component: {fileID: 114406486799417816}
+  - component: {fileID: 82104297043248730}
+  - component: {fileID: 82087119924033248}
+  - component: {fileID: 82506742923080060}
   m_Layer: 0
   m_Name: Sound Manager
   m_TagString: Untagged
@@ -132,9 +132,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4b1b110817d8f1142a301dc396d7406a, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ea796f97513c64bba53a0e28ecb4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  efxSource: {fileID: 82087119924033248}
-  musicSource: {fileID: 82104297043248730}
-  walkingSource: {fileID: 82506742923080060}
+  music:
+  - {fileID: 8300000, guid: 8835c388a53608c418e9951711030014, type: 3}
+  - {fileID: 8300000, guid: 4b1b110817d8f1142a301dc396d7406a, type: 3}
+  sources: []
