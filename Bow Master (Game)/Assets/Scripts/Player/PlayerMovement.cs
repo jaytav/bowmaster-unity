@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 	public float jumpPower = 300f;
 	public float jumpWait;
 	public AudioClip moveAudio;
+	public Animator backgroundAnim;
 
 	private Rigidbody2D playerRB;
 	private GameObject background;
@@ -87,17 +88,21 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.tag == "Store") {
-			backgroundController.ChangeBackgroundStore();
+			backgroundAnim.Play("NormalToStore");
 		}
 
 		if (col.tag == "BossRoom") {
-			backgroundController.ChangeBackgroundBoss();
+			backgroundAnim.Play("NormalToBoss");
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col) {
-		if (col.tag == "Store" || col.tag == "BossRoom") {
-			backgroundController.ChangeBackgroundDefault();
+		if (col.tag == "Store") {
+			backgroundAnim.Play("StoreToNormal");
+		}
+
+		if (col.tag == "BossRoom") {
+			backgroundAnim.Play("BossToNormal");
 		}
 	}
 }

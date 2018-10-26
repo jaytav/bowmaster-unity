@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BackgroundController : MonoBehaviour {
 
-	public Sprite[] backgroundImages;
+	//public Sprite[] backgroundImages;
 	public float slowValue;
 	public Color defaultColor;
 	public Color storeColor;
@@ -28,6 +28,7 @@ public class BackgroundController : MonoBehaviour {
 	void Update() {
 		lerpValue += Time.deltaTime / slowValue;
 		backgroundImage.color = Color.Lerp(previousColor, currentColor, lerpValue); //slowly chnage currentColor over time
+		print(lerpValue);
 	}
 
 	public void ChangeBackgroundDefault() { //change background to default
