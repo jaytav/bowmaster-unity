@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	void Start() {
 		currency = 0; //start with 0 currency
 		UpdateCurrency();
+		SoundManager.instance.ChangeMusic();
 	}
 
 	public void AddCurrency(int currencyAmount) { //add currency to current amount

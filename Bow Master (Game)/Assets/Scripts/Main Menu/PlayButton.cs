@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayButton : MonoBehaviour {
 
+	public MainMenu mainMenu;
+
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.tag == "ButtonPresser") {
-			MainMenu.PlayGame();
+			mainMenu.PlayGame();
 		}
 	}
 }

@@ -9,8 +9,8 @@ public class MainMenu : MonoBehaviour {
 	public GameObject mainMenu;
 	public GameObject optionsMenu;
 
-	public static void PlayGame() {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	public void PlayGame() {
+		StartCoroutine(WaitSceneLoad());
 	}
 
 	public static void QuitGame() {
@@ -26,6 +26,14 @@ public class MainMenu : MonoBehaviour {
 	public void GoToMainMenu() {
 		optionsMenu.SetActive(false);
 		mainMenu.SetActive(true);
+	}
+
+	static IEnumerator WaitSceneLoad() {
+		AsyncOperation asyncLoad = 	SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
+		while (!asyncLoad.isDone) {
+			yield return null;
+		}
 	}
 	
 }
