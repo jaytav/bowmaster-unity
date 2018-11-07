@@ -9,6 +9,7 @@ public class MenuPlayer : MonoBehaviour {
 	public Sprite playerModel;
 	public float animSpeed;
 	public GameObject arrow;
+	public AudioClip arrowShoot;
 
 	private Image playerImage;
 	private bool isShooting;
@@ -43,6 +44,7 @@ public class MenuPlayer : MonoBehaviour {
 			yield return new WaitForSeconds(animSpeed);
 		}
 		playerImage.sprite = playerModel;
+		SoundManager.instance.PlaySingle(arrowShoot);
 		GameObject newArrow = Instantiate(arrow, transform.position, transform.rotation, gameObject.transform);
 		newArrow.transform.SetParent(gameObject.transform.parent);
 		isMoving = true;

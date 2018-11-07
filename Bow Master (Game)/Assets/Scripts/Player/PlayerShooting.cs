@@ -11,11 +11,16 @@ public class PlayerShooting : MonoBehaviour
 	public static int range = 6;
 	public GameObject arrow; //arrow being spawned
 	public AudioClip shootAudio;
+	public float arrowRegenTime;
+	public int totalArrows;
 
 	const float maxCharge = 1f; //maximum charge time
 
-	private Transform arrowSpawn;
+	
+	public int currentArrows;
+	public float arrowRegenTimer;
 
+	private Transform arrowSpawn;
 	private GameObject playerRange;
 	private CircleCollider2D playerRangeCol;
 	private ParticleSystem playerRangePS;
@@ -24,6 +29,7 @@ public class PlayerShooting : MonoBehaviour
 	void Start()
 	{
 		damage = damageInspector;
+		currentArrows = totalArrows;
 		playerRange = GameObject.FindGameObjectWithTag("PlayerRange");
 		playerRangeCol = playerRange.GetComponent<CircleCollider2D>();
 		playerRangePS = playerRange.GetComponent<ParticleSystem>();
@@ -36,24 +42,20 @@ public class PlayerShooting : MonoBehaviour
 	{
 		RangeChange();
 
-		if (Input.GetButton("Fire1"))
-		{
-			//increase charge time based on time held
-			chargeTime += Time.deltaTime;
-			PlayerMovement.direction = -1;
-			
-			//limit maximum charge time to 1 second
-			if (chargeTime > maxCharge) { chargeTime = maxCharge; }
+		if (currentArrows < totalArrows) {
+			arrowRegenTimer += Time.deltaTime;
 		}
 
-		if (Input.GetButtonUp("Fire1"))
-		{	
-			//create an instance of the arrow, located on arrowSpawn
+		if (arrowRegenTimer >= arrowRegenTime) {
+			arrowRegenTimer = 0f;
+			currentArrows++;
+		}
+
+		if (Input.GetButtonUp("Fire1") && currentArrows > 0)
+		{
 			Instantiate(arrow, arrowSpawn.position, PlayerRotate.lastRotation);
-			if (chargeTime >= 1f) {
-				SoundManager.instance.PlaySingle(shootAudio);
-			}
-			chargeTime = 0f; //reset charge time back to 0
+			currentArrows--;
+			SoundManager.instance.PlaySingle(shootAudio);
 		}
 	}
 

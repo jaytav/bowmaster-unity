@@ -17,6 +17,7 @@ TagManager:
   - Background
   - Store
   - BossRoom
+  - UI
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnRooms : MonoBehaviour {
 
+	public int roomAmount;
 	public GameObject[] rooms;
 	public GameObject spawn;
 	public GameObject store;
@@ -21,7 +22,7 @@ public class SpawnRooms : MonoBehaviour {
 
 		SpawnSpawnRoom();
 
-		for (int i = 0; i < rooms.Length; i++) {
+		for (int i = 0; i < roomAmount; i++) {
 			int roomNum = Random.Range(0, rooms.Length);
 
 			SpawnEnemyRoom(roomNum);

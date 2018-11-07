@@ -8,6 +8,7 @@ public class ArrowMovement : MonoBehaviour
 	public float reduceSpeed = 0.05f;
 	public Object brokenArrow;
 	public AudioClip arrowBreakAudio;
+	public float tapPower;
 	
 	private Vector2 directionToMouse;
 	private int damage;
@@ -18,22 +19,20 @@ public class ArrowMovement : MonoBehaviour
 	void Awake()
 	{
 		damage = PlayerShooting.damage; //set arrows damage
-		chargePower = PlayerShooting.chargeTime; //get charge amount
 	}
 
 	void Start()
 	{
 		arrowRB = GetComponent<Rigidbody2D>();
 		arrowSpriteRenderer = GetComponent<SpriteRenderer>();
-
 		SetDirection();
 	}
 
 	void Update() {
 		transform.Translate(directionToMouse.x * Time.deltaTime * speed,
-							directionToMouse.y * Time.deltaTime * speed,
-							0f,
-							Space.World);
+						directionToMouse.y * Time.deltaTime * speed,
+						0f,
+						Space.World);
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
@@ -44,12 +43,12 @@ public class ArrowMovement : MonoBehaviour
 		print(col.name);
 		DestroyInstantiateArrow();
 
-		if (col.tag == "Enemy" && chargePower >= 1f) {
+		if (col.tag == "Enemy") {
 			EnemyHealth enemyHealth = col.gameObject.GetComponent<EnemyHealth>();
 			enemyHealth.TakeDamage(damage);
 		}
 
-		if (col.tag == "Boss" && chargePower >= 1f) {
+		if (col.tag == "Boss") {
 			BossHealth bossHealth = col.gameObject.GetComponent<BossHealth>();
 			bossHealth.TakeDamage(damage);
 		}

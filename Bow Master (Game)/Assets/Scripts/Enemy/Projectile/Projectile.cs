@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour {
 
 	public int damage;
 	public float timeBeforeMove;
+	public float timeToDestroy;
 
 	private float timeTaken;
 	private GameObject player;
@@ -30,6 +31,10 @@ public class Projectile : MonoBehaviour {
 			transform.Translate(directionToTarget.x * Time.deltaTime,
 							directionToTarget.y * Time.deltaTime, 
 							0f);
+		}
+
+		if (timeTaken > timeToDestroy) {
+			Destroy(gameObject);
 		}
 	}
 

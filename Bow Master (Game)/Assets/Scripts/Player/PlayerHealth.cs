@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	private bool isDead;
 	private bool damaged;
+	private float deathTimer;
 
 	void Awake() {
 		currentHealth = startingHealth;
@@ -24,6 +26,15 @@ public class PlayerHealth : MonoBehaviour {
 			print("got hit lol");
 		}
 		damaged = false;
+
+		if (isDead) {
+			deathTimer += Time.deltaTime;
+			print(deathTimer);
+		}
+
+		if (gameObject.transform.position.y < -50f) {
+			Die();
+		} 
 	}
 
 	public void TakeDamage(int amount) {
@@ -40,6 +51,8 @@ public class PlayerHealth : MonoBehaviour {
 
 	private void Die() {
 		isDead = true;
+		UIAnim.SetTrigger("PlayerDie");
+		GameManager.instance.playerDead = true;
 		Destroy(gameObject); //destroy player
 		Instantiate(deadPlayer, transform.position, transform.rotation); //replace with dead version
 	}

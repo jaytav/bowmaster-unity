@@ -104,6 +104,7 @@ MonoBehaviour:
   brokenArrow: {fileID: 1353501164366610, guid: 6d7ebde07971be9448e87cd9f2d0bc93,
     type: 2}
   arrowBreakAudio: {fileID: 8300000, guid: 35d91b036af939f4a964dd6408dbad22, type: 3}
+  tapPower: 50
 --- !u!212 &212529267865744932
 SpriteRenderer:
   m_ObjectHideFlags: 1

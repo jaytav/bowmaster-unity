@@ -11,14 +11,20 @@ public class KingSlimeAttack : MonoBehaviour {
 
 	private float nextAttackTimer;
 	private bool isAttacking;
+	private BossHealth bossHealth;
 
 	void Start() {
+		bossHealth = GetComponent<BossHealth>();
 		isAttacking = false;
 	}
 
 	void Update() {
 		if (!isAttacking) {
 			nextAttackTimer += Time.deltaTime;
+		}
+
+		if (bossHealth.currentHealth <= bossHealth.startingHealth / 2) {
+			timeUntilNextAttack = 1f;
 		}
 
 		if (nextAttackTimer >= timeUntilNextAttack) {

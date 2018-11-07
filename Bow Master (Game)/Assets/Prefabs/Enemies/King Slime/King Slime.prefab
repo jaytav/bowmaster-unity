@@ -766,12 +766,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbeaf9c46a8bbc44fad552590a41ae48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10
+  startingHealth: 20
   currentHealth: 0
   bossHealthAmount: {fileID: 114953261963282506}
   bossHealthBar: {fileID: 114148318184911496}
   flashAmount: 2
   flashTime: 0.1
+  deathAnim: {fileID: 7400000, guid: 2e9a9f966ae6f1c48af660df2b3c2fa3, type: 2}
+  deathClip: {fileID: 8300000, guid: 6ccbe0f6153f2a848a346aebf8adc3ed, type: 3}
+  hurtClip: {fileID: 8300000, guid: 9a949448afe252e45905b2944c8d25fb, type: 3}
 --- !u!114 &114470567688222676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a088700f19a1a6640bfde719b1c7ed96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilNextAttack: 5
+  timeUntilNextAttack: 3
   spikeSpawnWaitTime: 0.5
   spikeSpawnPoints: {fileID: 4668871942554864}
   kingSlimeProjectile: {fileID: 1483902744965944, guid: 4c352b12a3ec519488fcb726db371d80,

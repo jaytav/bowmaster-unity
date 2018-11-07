@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour {
 		//check if there is an instance of SoundManager, if not set to this
 		if (instance == null) instance = this;
 		//if an instance does exist, destroy this
-		else if (instance != this) Destroy(this);
+		else if (instance != this) Destroy(gameObject);
 
 		ChangeMusic();
 		DontDestroyOnLoad(gameObject);

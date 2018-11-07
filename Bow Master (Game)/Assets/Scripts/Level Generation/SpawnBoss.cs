@@ -8,6 +8,7 @@ public class SpawnBoss : MonoBehaviour {
 	public Transform bossSpawnPoint;
 	public GameObject bossSpawnPS;
 	public float waitForSwitch;
+	public AudioClip bossRoomAudio;
 
 	private GameObject camera;
 	private float timeToDestroy;
@@ -16,7 +17,9 @@ public class SpawnBoss : MonoBehaviour {
 	void Start() {
 		timeToDestroy = 3f;
 		timeToWaitForParticles = 0.5f;
-		
+		SoundManager.instance.sources[0].clip = bossRoomAudio;
+		SoundManager.instance.sources[0].Play();
+
 		StartCoroutine(WaitForCameraSwitch());
 		StartCoroutine(WaitForParticles());
 	}

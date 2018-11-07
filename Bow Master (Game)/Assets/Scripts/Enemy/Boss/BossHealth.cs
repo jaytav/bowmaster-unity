@@ -11,7 +11,9 @@ public class BossHealth : MonoBehaviour {
 	public Slider bossHealthBar;
 	public int flashAmount;
 	public float flashTime;
-	public Animation deathAnim;
+	public AnimationClip deathAnim;
+	public AudioClip deathClip;
+	public AudioClip hurtClip;
 
 	private float deathAnimLength;
 	private SpriteRenderer bossSR;
@@ -24,6 +26,7 @@ public class BossHealth : MonoBehaviour {
 
 	void Awake() {
 		currentHealth = startingHealth;
+		bossHealthAmount.text = currentHealth.ToString();
 		bossHealthBar.value = 0f;
 	}
 
@@ -34,7 +37,7 @@ public class BossHealth : MonoBehaviour {
 		whiteShader = Shader.Find("GUI/Text Shader");
 		defaultShader = Shader.Find("Sprites/Default");
 		bossAnim = GetComponent<Animator>();
-		deathAnimLength = deathAnim.clip.length;
+		deathAnimLength = deathAnim.length;
 	}
 
 	void Update() {
@@ -47,6 +50,7 @@ public class BossHealth : MonoBehaviour {
 	public void TakeDamage(int amount) {
 		currentHealth -= amount;
 		bossAnim.Play("KingSlime_Damaged"); //damaged animation
+		SoundManager.instance.PlaySingle(hurtClip);
 
 		if (currentHealth <= 0) {
 			Die();
@@ -58,6 +62,7 @@ public class BossHealth : MonoBehaviour {
 	}
 
 	void Die() {
+		SoundManager.instance.PlaySingle(deathClip);
 		StartCoroutine(WaitForFlash());
 		StartCoroutine(WaitForCamera());
 	}
@@ -88,10 +93,13 @@ public class BossHealth : MonoBehaviour {
 	}
 
 	IEnumerator WaitForCamera() {
+		GameObject player = GameObject.FindGameObjectWithTag("Player"); //get player transform to return back to it
 		CameraManager.instance.ChangeTarget(gameObject.transform);
 		CameraManager.instance.CameraZoom(CameraManager.instance.defaultZoom);
 		yield return new WaitForSeconds(deathAnimLength);
-		CameraManager.instance.ChangeTarget(CameraManager.instance.playerTransform);
+		CameraManager.instance.ChangeTarget(player.transform);
+		GameManager.instance.bossDead = true;
+		SoundManager.instance.ChangeMusic();
 	}
 
 	void WhiteSprite() {

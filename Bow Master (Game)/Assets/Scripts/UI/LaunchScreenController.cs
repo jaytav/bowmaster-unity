@@ -15,6 +15,7 @@ public class LaunchScreenController : MonoBehaviour {
 		timer = 0f;
 		goingToMenu = false;
 		launchScreenAnim = GetComponent<Animator>();
+		SoundManager.instance.ChangeMusic();
 	}
 
 	void Update() {

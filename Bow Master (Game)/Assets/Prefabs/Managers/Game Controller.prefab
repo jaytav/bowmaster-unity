@@ -53,7 +53,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyText: {fileID: 0}
+  UIAnim: {fileID: 0}
+  playerDead: 0
+  bossDead: 0
   currency: 0
+  playerShooting: {fileID: 0}
+  playerMovement: {fileID: 0}
+  timerUntilPlayerMoves: 3
 --- !u!114 &114155513477968200
 MonoBehaviour:
   m_ObjectHideFlags: 1

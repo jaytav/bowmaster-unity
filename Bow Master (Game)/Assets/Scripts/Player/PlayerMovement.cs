@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 	private BackgroundController backgroundController;
 	private bool jumped;
 	private bool isMoving;
+	private GameObject bossSpawnTrigger;
 	
 	void Awake()
 	{
@@ -28,6 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
 	void Start() {
 		background = GameObject.FindGameObjectWithTag("Background");
+		bossSpawnTrigger = GameObject.Find("Floor 01/Boss Room(Clone)/Spawn Boss Trigger");
+
+		if (bossSpawnTrigger) {
+			print("Found");
+		}
 
 		if (background) { 
 			backgroundController = background.GetComponent<BackgroundController>();
@@ -60,21 +66,9 @@ public class PlayerMovement : MonoBehaviour
 			jumped = true;
 			StartCoroutine(waitJump());
 		}
-		Flip(moveHorizontal);
-	}
 
-	void Flip(float h) //flips player sprite based on horziontal direction
-	{
-		if (playerSR && PlayerShooting.chargeTime == 0f) { //only if sprite exists and player not charging
-			if (h > 0) { direction = 1; } //sprite faces forward
-			if (h < 0) { direction = -1; } //sprite faces backwards
-		}
-
-		if (direction == 1) {
-			playerSR.flipX = false;
-		}
-		else if (direction == -1) {
-			playerSR.flipX = true;
+		if (Input.GetKeyDown(KeyCode.Alpha0)) {
+			gameObject.transform.position = bossSpawnTrigger.transform.position;
 		}
 	}
 

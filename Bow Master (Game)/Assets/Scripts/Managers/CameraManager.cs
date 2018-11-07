@@ -37,14 +37,18 @@ public class CameraManager : MonoBehaviour {
 	}
 
 	void Update() {
-		zoomLerpElapsed += Time.deltaTime / zoomLerpDuration;
-		Camera.main.orthographicSize = Mathf.Lerp(prevZoom, targetZoom, zoomLerpElapsed);
+		if (target) {
+			zoomLerpElapsed += Time.deltaTime / zoomLerpDuration;
+			Camera.main.orthographicSize = Mathf.Lerp(prevZoom, targetZoom, zoomLerpElapsed);
+		}
 	}
 
 	void LateUpdate() {
-		Vector3 mousePos = (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Vector3 targetPos = (target.transform.position + mousePos + offset)/2;
-		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.2f);
+		if (target) {
+			Vector3 mousePos = (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector3 targetPos = (target.transform.position + mousePos + offset)/2;
+			transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.2f);
+		}
 	}
 
 	public void CameraZoom(float targZoom) {
