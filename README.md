@@ -1,4 +1,4 @@
-# Bowmaster
+# bowmaster-unity
 
 - Unity Engine
 - Roguelike
